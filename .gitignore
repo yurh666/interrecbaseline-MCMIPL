@@ -7,10 +7,6 @@ __pycache__/
 .venv/
 venv/
 
-# 实验产物（本地复现会生成）
-logs/
-**/MCMIPL/tmp/
-
 # 编辑器与系统
 .DS_Store
 *.swp

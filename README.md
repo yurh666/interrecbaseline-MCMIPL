@@ -17,7 +17,8 @@ interrecbaseline-MCMIPL/
     VIBE_CODING_BOOK_MOVIE.md        # 给 AI /「vibe coding」用的逐步 prompt
 ```
 
-说明：`MCMIPL/tmp/` 与训练日志未纳入版本库（体积大、可复现生成）；若需全量 RL 日志请在本地运行后保留。
+说明：本仓库已包含 **`main_table_experiments/logs`**、**`MCMIPL/tmp`**（训练中间产物与评估日志），以及原嵌套仓库 **`MCMIPL/.git` 的 gzip 分片备份**（见 `baselines/mcmipl_official/archived_mcmipl_nested_git/`，单文件超过 100MB 故分片；还原步骤见该目录下 `README_RESTORE.md`）。
+
 
 ## 环境
 

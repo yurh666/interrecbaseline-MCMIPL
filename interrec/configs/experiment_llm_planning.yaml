@@ -1,0 +1,4 @@
+inherits: default.yaml
+method: llm_planning_placeholder
+llm:
+  mode: mock

@@ -1,0 +1,4 @@
+inherits: default.yaml
+method: interrec
+llm:
+  mode: mock

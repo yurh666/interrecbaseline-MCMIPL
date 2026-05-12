@@ -1,0 +1,6 @@
+inherits: default.yaml
+method: choice_diagnostic
+simulation:
+  max_turns: 1
+logging:
+  generate_report: false

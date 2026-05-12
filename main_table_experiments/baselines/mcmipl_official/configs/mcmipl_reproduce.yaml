@@ -1,0 +1,42 @@
+project_root: /home/yurh/main_table_experiments
+baseline_root: /home/yurh/main_table_experiments/baselines/mcmipl_official
+repo_dir: /home/yurh/main_table_experiments/baselines/mcmipl_official/MCMIPL
+official_repo: https://github.com/ZYM6-6/MCMIPL
+official_commit: 01b7dd672331fc58b67a9ec3ba3dfa4a02f31bd5
+
+environment:
+  python: 3.7.9
+  pytorch: 1.7.1
+  dgl: 0.6.0
+
+datasets:
+  priority:
+    - LAST_FM_STAR
+    - YELP_STAR
+    - MOVIE
+  supported_by_code:
+    - LAST_FM_STAR
+    - YELP_STAR
+    - BOOK
+    - MOVIE
+
+training:
+  seeds: [0, 1, 2]
+  command: python RL_model.py --data_name <data_name> --seed <seed>
+  keep_official_defaults: true
+  default_checkpoint_epoch: 100
+
+evaluation:
+  command: python evaluate.py --data_name <data_name> --load_rl_epoch <checkpoint_epoch> --seed <seed>
+  metrics:
+    - SR@5
+    - SR@10
+    - SR@15
+    - AvgT
+    - hDCG
+    - reward
+
+notes:
+  - 主表 baseline 必须使用官方数据、官方 graph_init、官方 embeddings、官方 RL_model.py 和 evaluate.py。
+  - 当前脚本不修改官方核心算法、user simulator、reward、split 或 evaluation metric。
+  - 如果官方 evaluate.py 的未定义变量问题触发，需要以兼容性 patch 形式记录，不能改变评估逻辑。

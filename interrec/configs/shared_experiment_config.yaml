@@ -1,0 +1,200 @@
+# =============================================================================
+# InterRec 共享实验配置
+# =============================================================================
+# 本文件是所有方法（InterRec 主方法 + 所有 baseline）共用的配置入口。
+# 规定了数据路径、随机种子、评估协议、LLM 接口等，确保不同方法在相同条件下评估。
+#
+# 使用方法：
+#   在代码里：from src.utils.config import load_config
+#              cfg = load_config("configs/shared_experiment_config.yaml")
+#
+# 修改规则：
+#   - seed / max_turns / top_k 不允许单方法修改（影响公平性）
+#   - llm.mode / llm.provider 根据实际情况修改
+#   - 每个方法可以继承此文件并覆盖 method_name
+# =============================================================================
+
+# ── 元信息 ──────────────────────────────────────────────────────────────────
+project: interrec
+version: "1.0"
+created: "2026-05-07"
+
+# ── 随机种子（论文实验必须跑 seed: 0, 1, 2 各一次） ─────────────────────────
+seed: 42
+eval_seeds: [0, 1, 2]
+
+# ── 数据路径（所有方法统一使用，不允许修改） ─────────────────────────────────
+data:
+  # 处理后数据目录（只读，不允许写入）
+  processed_dir: /home/yurh/interrec/data/processed
+
+  # 具体文件路径
+  interactions:   /home/yurh/interrec/data/processed/interactions.csv
+  items:          /home/yurh/interrec/data/processed/items.csv
+  user_splits:    /home/yurh/interrec/data/processed/user_splits.json
+  sessions:       /home/yurh/interrec/data/processed/sessions.json
+  item_embeddings: /home/yurh/interrec/data/processed/item_embeddings.npy
+  item_id_to_index: /home/yurh/interrec/data/processed/item_id_to_index.json
+
+  # 原始数据（只读，不允许修改）
+  raw_dir:        /home/yurh/interrec/data/raw
+  raw_interactions: /home/yurh/interrec/data/raw/interactions.csv
+  raw_items:      /home/yurh/interrec/data/raw/items.csv
+  hetrec_dir:     /home/yurh/interrec/data/raw/hetrec2011-lastfm-2k
+
+  # MCMIPL 官方数据（仅 MCMIPL baseline 使用）
+  mcmipl_data_dir: /home/yurh/main_table_experiments/baselines/mcmipl_official/MCMIPL/data
+
+# ── 数据集基本信息（统计值，勿修改）─────────────────────────────────────────
+dataset:
+  name: lastfm
+  source: hetrec2011-lastfm-2k
+  item_granularity: artist         # 物品粒度：artist（非单曲）
+  n_users: 1648
+  n_items: 2665
+  n_interactions: 67098
+  avg_interactions_per_user: 40.7
+  avg_interactions_per_item: 25.2
+
+  # 过滤阈值（已应用于 processed_dir，勿重复过滤）
+  min_user_interactions: 20
+  min_item_interactions: 5
+
+  # 切分比例（已应用于 user_splits.json，勿重新切分）
+  observed_ratio: 0.4
+  future_train_ratio: 0.7
+  future_valid_ratio: 0.1
+  future_test_ratio: 0.2
+
+# ── Embedding 配置 ───────────────────────────────────────────────────────────
+embedding:
+  # 已构建完毕的 tfidf_svd embedding（所有方法可直接加载，无需重建）
+  default_mode: tfidf_svd
+  default_dim: 128
+  default_file: /home/yurh/interrec/data/processed/item_embeddings.npy
+
+  # 如需切换为神经网络 embedding（需要 GPU + ~30 分钟首次下载）
+  bge_mode: bge
+  bge_model: BAAI/bge-m3          # 维度 1024，降维到 128
+  sentence_transformer_model: sentence-transformers/all-MiniLM-L6-v2
+
+  normalize: true
+  use_mock_if_failed: false        # 正式实验关闭 mock fallback
+
+# ── 评估协议（所有方法统一，不允许修改）───────────────────────────────────────
+evaluation:
+  # 评估阶段使用 future_test
+  eval_split: test
+
+  # 推荐列表长度
+  top_k: [5, 10]
+
+  # 最大交互轮次（与 MCMIPL 对齐：15轮）
+  max_turns: 15
+
+  # 评估用户数量
+  # 调试时：max_users: 20
+  # 正式实验：max_users: null（全量 1648 用户）
+  max_users: null
+
+  # MCMIPL 兼容指标（主表使用）
+  mcmipl_metrics: [SR@5, SR@10, SR@15, AvgT, hDCG]
+  # SR@K 定义：前 K 轮内在推荐列表 top-10 中命中 future_test 物品
+  # AvgT：成功用户的平均轮次（未成功算 max_turns）
+  # hDCG：1/log2(t+3) + (1/log2(t+2) - 1/log2(t+3)) / log2(done+1)
+
+  # InterRec 框架指标
+  interrec_metrics: [HitRate@5, HitRate@10, NDCG@10, MRR@10, ask_count, avg_turns]
+
+# ── LLM API 接入 ──────────────────────────────────────────────────────────────
+llm:
+  # 模式：mock（调试） | openai | anthropic
+  # 修改这里切换模式，不要修改代码
+  mode: mock
+
+  # 真实 API 配置（mode: openai 时生效）
+  provider: openai
+  model: gpt-4o-mini              # 成本低、速度快，推荐正式实验使用
+  # model: gpt-4o                 # 质量更高，成本约 10x
+  # model: claude-3-5-haiku-20241022  # Anthropic 经济模型
+
+  # API base URL（不填则用官方地址；如需代理，填代理地址）
+  base_url: null
+  # base_url: https://your-proxy.com/v1
+
+  # API 密钥来源：必须通过环境变量传入，不能硬编码
+  # export OPENAI_API_KEY="sk-..."
+  # export ANTHROPIC_API_KEY="sk-ant-..."
+
+  # 日志设置
+  log_prompts: true               # 必须为 true（便于复现和审计）
+  log_responses: true
+  max_retry: 3
+  timeout: 60
+
+# ── 实验输出目录 ──────────────────────────────────────────────────────────────
+output:
+  # 每次运行的详细结果（自动创建子目录 {run_id}/）
+  runs_dir: /home/yurh/interrec/experiments/runs
+
+  # 最终汇总指标表
+  main_table: /home/yurh/interrec/outputs/metrics/main_table.csv
+  main_table_mean_std: /home/yurh/interrec/outputs/metrics/main_table_mean_std.csv
+
+  # 报告目录
+  reports_dir: /home/yurh/interrec/outputs/reports
+
+# ── Simulation 配置（InterRec 及 interactive baseline 使用）──────────────────
+simulation:
+  theta_star_mode: future_average  # theta* = weighted avg of future_test embeddings
+  user_choice_mode: deterministic_argmax  # 正式实验用 argmax（deterministic）
+  tau_user_choice: 0.2
+  tau_user_click: 0.2
+
+  # theta_star 来源（必须对应评估阶段）
+  theta_star_split:
+    train: future_train
+    valid: future_valid
+    test: future_test
+
+# ── Belief 配置（InterRec 使用） ──────────────────────────────────────────────
+belief:
+  sigma0: 1.0
+  jitter: 1e-6
+  init_mode: weighted_average
+
+# ── Question Asking 配置（InterRec 使用） ─────────────────────────────────────
+ask:
+  K_directions: 5
+  M_hypotheses: 5
+  n_options: 3
+  include_none: true
+  anchor_top_k: 5
+  representative_top_k: 5
+  tau_choice: 0.2
+  tau_none: 0.2
+  none_threshold: 0.25
+  none_bias: 0.0
+  mc_samples: 128
+  c_ask: 0.05
+  alpha_none: 1.2
+
+# ── MCMIPL Baseline 专属配置 ──────────────────────────────────────────────────
+mcmipl:
+  use_official_repo: true
+  repo_path: /home/yurh/main_table_experiments/baselines/mcmipl_official/MCMIPL
+  conda_env: mcmipl-reproduce
+  run_script: /home/yurh/main_table_experiments/baselines/mcmipl_official/scripts/run_train.sh
+  eval_script: /home/yurh/main_table_experiments/baselines/mcmipl_official/scripts/run_eval.sh
+  results_dir: /home/yurh/main_table_experiments/comparison/results
+  # 当前已有复现结果（3个 seed 均值）：
+  # SR@5=0.417, SR@10=0.773, SR@15=0.860, AvgT=7.19, hDCG=0.349
+
+# ── 日志格式要求（所有方法必须遵守）──────────────────────────────────────────
+logging:
+  save_full_log: true
+  save_artifacts: true
+  generate_report: false           # 调试时可改为 true
+  timestamp_run_id: true
+  # run_id 格式：{YYYYMMDD_HHMMSS}_{dataset}_{method}_seed{N}
+  # 示例：20260507_202618_lastfm_interrec_seed42

@@ -1,0 +1,90 @@
+# InterRec 时序切分：输入来自 MCMIPL 官方 movie
+seed: 42
+
+dataset:
+  name: mcmipl_movie
+  raw_interactions_path: data/raw_mcmipl_movie/interactions.csv
+  raw_items_path: data/raw_mcmipl_movie/items.csv
+  processed_dir: data/processed_mcmipl_movie
+  # MCMIPL movie 序列极短：原始交互里单用户最大序列长仅 18，无法用 LastFM 默认的
+  # min_user_interactions=20；同时 observed_ratio=0.4 时 observed 长度约为 floor(0.4*n)，
+  # 若 min_observed_interactions=10 会在 n≤24 时恒不成立。下面阈值在「仍做 observed/future
+  # 时序切分」前提下与本书目数据分布相容。
+  min_user_interactions: 15
+  min_item_interactions: 5
+  observed_ratio: 0.4
+  future_train_ratio: 0.7
+  future_valid_ratio: 0.1
+  future_test_ratio: 0.2
+  min_observed_interactions: 6
+  min_future_interactions: 5
+
+embedding:
+  mode: tfidf_svd
+  dim: 128
+  normalize: true
+  output_dir: data/processed_mcmipl_movie
+
+belief:
+  sigma0: 1.0
+  jitter: 1e-6
+  init_mode: weighted_average
+
+recommendation:
+  top_k: 10
+  lambda_explore: 0.1
+  uncertainty_top_k: 5
+
+ask:
+  K_directions: 5
+  M_hypotheses: 5
+  n_options: 3
+  include_none: true
+  anchor_top_k: 5
+  representative_top_k: 5
+  tau_choice: 0.2
+  tau_none: 0.2
+  none_threshold: 0.25
+  none_bias: 0.0
+  mc_samples: 128
+  c_ask: 0.05
+  alpha_none: 1.2
+
+simulation:
+  split: test
+  max_turns: 5
+  max_users: 50
+  theta_star_split:
+    train: future_train
+    valid: future_valid
+    test: future_test
+  theta_star_mode: future_average
+  user_choice_mode: deterministic_argmax
+  tau_user_choice: 0.2
+  tau_user_click: 0.2
+
+llm:
+  mode: mock
+  provider: none
+  log_prompts: false
+  log_responses: false
+  max_retry: 3
+
+logging:
+  save_full_log: true
+  save_artifacts: true
+  generate_report: false
+  report_format: markdown
+  timestamp_run_id: true
+
+baselines:
+  mcmipl:
+    use_official_repo: true
+    repo_url: https://github.com/ZYM6-6/MCMIPL
+
+ablations:
+  no_bayesian_belief: false
+  no_information_gain: false
+  static_intent_prototype: false
+  fixed_ask_policy: false
+  free_text_feedback: false

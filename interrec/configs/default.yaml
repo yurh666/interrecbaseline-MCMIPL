@@ -1,0 +1,103 @@
+seed: 42
+
+dataset:
+  name: lastfm
+  raw_interactions_path: data/raw/interactions.csv
+  raw_items_path: data/raw/items.csv
+  processed_dir: data/processed
+  min_user_interactions: 20
+  min_item_interactions: 5
+  observed_ratio: 0.4
+  future_train_ratio: 0.7
+  future_valid_ratio: 0.1
+  future_test_ratio: 0.2
+  min_observed_interactions: 10
+  min_future_interactions: 5
+
+embedding:
+  mode: tfidf_svd
+  dim: 128
+  normalize: true
+  bge_model: BAAI/bge-m3
+  sentence_transformer_model: sentence-transformers/all-MiniLM-L6-v2
+  use_mock_if_failed: true
+  output_dir: data/processed
+
+belief:
+  sigma0: 1.0
+  jitter: 1e-6
+  init_mode: weighted_average
+
+recommendation:
+  top_k: 10
+  lambda_explore: 0.1
+  uncertainty_top_k: 5
+
+ask:
+  K_directions: 5
+  M_hypotheses: 5
+  n_options: 3
+  include_none: true
+  anchor_top_k: 5
+  representative_top_k: 5
+  tau_choice: 0.2
+  tau_none: 0.2
+  none_threshold: 0.25
+  none_bias: 0.0
+  mc_samples: 128
+  c_ask: 0.05
+  alpha_none: 1.2
+
+simulation:
+  split: test
+  max_turns: 5
+  max_users: 50
+  theta_star_split:
+    train: future_train
+    valid: future_valid
+    test: future_test
+  theta_star_mode: future_average
+  user_choice_mode: deterministic_argmax
+  tau_user_choice: 0.2
+  tau_user_click: 0.2
+
+llm:
+  mode: mock
+  provider: none
+  log_prompts: true
+  log_responses: true
+  max_retry: 3
+
+logging:
+  save_full_log: true
+  save_artifacts: true
+  generate_report: false
+  report_format: markdown
+  timestamp_run_id: true
+
+baselines:
+  retrieval:
+    bm25: true
+    bge_m3: false
+    bge_reranker: false
+  llm_planning:
+    zero_shot: false
+    one_shot: false
+    cot: false
+    plan_solve: false
+    react: false
+    reflexion: false
+  interactive_agents:
+    taira_style: false
+    interecagent_style: false
+    macrs_style: false
+  mcmipl:
+    use_official_repo: false
+    repo_url: https://github.com/ZYM6-6/MCMIPL
+
+ablations:
+  no_bayesian_belief: false
+  no_information_gain: false
+  static_intent_prototype: false
+  fixed_ask_policy: false
+  free_text_feedback: false

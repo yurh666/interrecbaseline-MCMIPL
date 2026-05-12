@@ -1,0 +1,9 @@
+inherits: default.yaml
+method: retrieval_bm25
+llm:
+  mode: mock
+baselines:
+  retrieval:
+    bm25: true
+    bge_m3: false
+    bge_reranker: false

@@ -1,0 +1,8 @@
+channels:
+  - pytorch
+  - dglteam
+  - conda-forge
+channel_priority: flexible
+default_channels: []
+custom_channels: {}
+auto_activate_base: false

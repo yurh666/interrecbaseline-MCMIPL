@@ -1,0 +1,50 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.so
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Virtual envs
+.venv/
+venv/
+env/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Data (large files – transfer separately)
+data/raw/
+data/processed/*.npy
+data/processed/*.pkl
+
+# Experiment outputs (large – don't commit)
+experiments/
+outputs/runs/
+
+# Reports (generated, keep source configs)
+# outputs/reports/ is kept (small markdown files)
+
+# Logs
+*.log
+*.jsonl
+
+# Checkpoints / models
+*.pt
+*.pth
+*.bin
+*.onnx
+*.ckpt
+
+# OS
+.DS_Store
+Thumbs.db
+
+# API keys (NEVER commit)
+.env
+*.env
+secrets.yaml
+api_keys.yaml

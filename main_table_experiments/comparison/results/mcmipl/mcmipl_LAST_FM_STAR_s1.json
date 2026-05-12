@@ -1,0 +1,13 @@
+{
+  "method": "MCMIPL",
+  "dataset": "LAST_FM_STAR",
+  "seed": 1,
+  "n_evals": 11,
+  "training_done": true,
+  "SR@5": 0.42874999999999996,
+  "SR@10": 0.75425,
+  "SR@15": 0.84425,
+  "AvgT": 7.28725,
+  "hDCG": 0.34649056293822195,
+  "reward": 0.21741749999999999
+}

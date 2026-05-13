@@ -1,0 +1,15 @@
+{
+  "method": "MCMIPL",
+  "dataset": "YELP_STAR",
+  "seed": 2,
+  "n_evals": 5,
+  "training_done": false,
+  "completed_RL_steps": 40,
+  "best_eval_note": "\u622a\u81f3\u65e5\u5fd7\u672b\u5c3e\uff1a\u53d6\u5386\u6b21\u5b8c\u6574 eval \u5747\u503c\u884c\u4e2d SR@15 \u6700\u5927\u8005\uff1b\u672a\u5b8c\u6210\u5168\u90e8 max_steps \u65f6\u4e0d\u5e94\u5199\u4f5c\u6700\u7ec8\u4e3b\u8868\u7ed3\u679c\u3002",
+  "SR@5": 0.16759999999999997,
+  "SR@10": 0.324,
+  "SR@15": 0.44799999999999995,
+  "AvgT": 11.531600000000001,
+  "hDCG": 0.1768699860942057,
+  "reward": -0.7882520000000003
+}

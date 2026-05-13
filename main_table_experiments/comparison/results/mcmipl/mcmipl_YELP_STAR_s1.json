@@ -1,0 +1,15 @@
+{
+  "method": "MCMIPL",
+  "dataset": "YELP_STAR",
+  "seed": 1,
+  "n_evals": 6,
+  "training_done": true,
+  "completed_RL_steps": 50,
+  "best_eval_note": "",
+  "SR@5": 0.09360000000000002,
+  "SR@10": 0.3788,
+  "SR@15": 0.574,
+  "AvgT": 11.463999999999999,
+  "hDCG": 0.1837936592433205,
+  "reward": -0.6558000000000002
+}

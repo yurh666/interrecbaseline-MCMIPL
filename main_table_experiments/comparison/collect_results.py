@@ -13,6 +13,7 @@ from mcmipl_log_metrics import (
     METRICS,
     extract_evals,
     best_checkpoint_by_sr15,
+    count_completed_training_steps,
 )
 
 DATASETS = ["LAST_FM_STAR", "YELP_STAR", "BOOK", "MOVIE"]
@@ -42,7 +43,12 @@ def main():
             log_file = log_dir / f"train_{ds}_s{s}.log"
             evals = extract_evals(log_file)
             best = best_checkpoint_by_sr15(evals)
-            done = log_file.exists() and "=== DONE:" in log_file.read_text(errors="ignore")
+            blob = log_file.read_text(errors="ignore")
+            # run_mcmipl.sh 在进程被 kill / 非正常退出后仍可能写入 `=== DONE ===`，不可靠。
+            # 若日志中有「人工中止」脚注，必须以脚注为准。
+            done = ("=== DONE:" in blob and
+                    "TRAINING STOPPED BEFORE DONE" not in blob and
+                    "manual interrupt)" not in blob)
 
             print(f"[{ds}] seed={s}: {len(evals)} eval(s) | done={done} | "
                   f"best SR@15={best['SR15'] if best else 'N/A'}")
@@ -54,7 +60,17 @@ def main():
                     "seed": s,
                     "n_evals": len(evals),
                     "training_done": done,
+                    # 与 RL_model 中每个 train_step 末尾的 `loss : ... in epoch_uesr` 行数一致；
+                    # 若在 max_steps 前中断，可据此刻度判断「实际训了多少大步」，勿与「指标来自哪次 eval」混为一谈。
+                    "completed_RL_steps": count_completed_training_steps(log_file),
                 }
+                if not done:
+                    row["best_eval_note"] = (
+                        "截至日志末尾：取历次完整 eval 均值行中 SR@15 最大者；"
+                        "未完成全部 max_steps 时不应写作最终主表结果。"
+                    )
+                else:
+                    row["best_eval_note"] = ""
                 for k in METRICS:
                     row[PRETTY[k]] = best[k]
                 all_rows.append(row)
@@ -74,9 +90,13 @@ def main():
     summary_path = Path(args.summary)
     summary_path.parent.mkdir(parents=True, exist_ok=True)
     if all_rows:
-        cols = ["method", "dataset", "seed", "n_evals", "training_done"] + list(PRETTY.values())
+        cols = (
+            ["method", "dataset", "seed", "n_evals", "training_done",
+             "completed_RL_steps", "best_eval_note"]
+            + list(PRETTY.values())
+        )
         with open(summary_path, "w", newline="") as f:
-            w = csv.DictWriter(f, fieldnames=cols)
+            w = csv.DictWriter(f, fieldnames=cols, restval="", extrasaction="ignore")
             w.writeheader()
             w.writerows(all_rows)
         print(f"\n已保存 {len(all_rows)} 行到 {summary_path}")

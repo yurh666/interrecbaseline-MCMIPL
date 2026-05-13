@@ -8,14 +8,16 @@
 
 ## 零、当前实验进度摘要
 
-（**2026-05-13 更新**：快照与 GPU/远程说明见长文 **`report_progress_seed2_gpu_remote_2026-05-13.md`**。）
+（**2026-05-13**：YELP · seed 2 已由用户要求 **手动停止**（约 **40/50** RL 大步）；**不得**将 seed 2 写作与 seed 0/1 同权的「满 50 步」结果。三 seed **探索性**汇总与诚实表述见 **`report_YELP_STAR_three_seed_unified_honest.md`**。GPU/远程说明仍见 **`report_progress_seed2_gpu_remote_2026-05-13.md`**。）
 
 | 数据集 | Seed 0 | Seed 1 | Seed 2 |
 |--------|--------|--------|--------|
 | LAST_FM_STAR | ✅ DONE | ✅ DONE | ✅ DONE |
-| YELP_STAR | ✅ DONE（`train_YELP_STAR_s0.log`） | ✅ DONE（`train_YELP_STAR_s1.log`） | ⏳ seed 2 未收尾（见下） |
+| YELP_STAR | ✅ DONE（满 50 步） | ✅ DONE（满 50 步） | ⚠️ **人工中止**（约 40 步，见专报） |
 
-**YELP · seed 2 说明（`main_table_experiments/logs/train_YELP_STAR_s2.log`）**：`RL_model.py` 配置 **`--max_steps 50`、`--sample_times 100`** 时，每完成一个大步都会在日志中多出 **一行** **`loss : … in epoch_uesr 100`**。**截至上述快照已累计 40 行** → **40/50** 大步已结束，尚有 **至多 10 个大步及当前大步内未完采样**。且本机仍存在 **`python -u RL_model.py --data_name YELP_STAR --seed 2`** 常驻进程。**是否「跑完」以 **`run_mcmipl.sh`** 末尾 `tee` 的 **`=== DONE: YELP_STAR seed=2 ===`** 为准**；完成后请 `grep DONE` 核对并跑 `collect_results.py`。粗估剩余墙钟：**约 3.5–7 h**（见长文）。
+**`collect_results` 说明**：若日志含 `TRAINING STOPPED BEFORE DONE` / `manual interrupt)` 脚注，则 **`training_done` 记为 false**，即使存在误打印的 `=== DONE ===` 行。
+
+**Baseline 复现范围（约定）**：主表 MCMIPL 强基线仍以 **LAST_FM_STAR + YELP_STAR** 为限。Yelp 的 **严格三 seed 满训**在 seed 2 补跑完成前**未闭合**；当前 JSON/CSV 中的 seed 2 行为 **截断 run 的最优 eval 快照**。
 
 **Baseline 复现范围（约定）**：本文档所列 MCMIPL 强基线以 **数据集① LAST_FM_STAR + 数据集② YELP_STAR** 为限（各三 seed）。**在第二个数据集 Yelp 三 seed 均达到可归档的完成状态后，本 baseline 复现即告一段落，不再自动接 BOOK/MOVIE 全量 TransE+RL 或同级的第三期大规模跑数**；若以后需要 §3.2 中的 BOOK/MOVIE 时序协议实验，**另起任务**即可。
 

@@ -4,6 +4,8 @@
   "seed": 0,
   "n_evals": 11,
   "training_done": true,
+  "completed_RL_steps": 100,
+  "best_eval_note": "",
   "SR@5": 0.417,
   "SR@10": 0.74875,
   "SR@15": 0.8405000000000001,

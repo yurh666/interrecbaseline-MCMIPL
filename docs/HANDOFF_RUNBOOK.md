@@ -4,6 +4,44 @@
 
 ---
 
+## 〇、文档与克隆必须对齐（请先读）
+
+你或协作者在 **CPU 环境**里若出现以下情况，说明 **没拉到与本文档一致的提交**，或混用了旧副本：
+
+- 顶层缺少 `main_table_experiments/run_pipeline_phase_cpu.sh` 等文件；
+- `run_mcmipl.sh` 里仍是 `/home/yurh/main_table_experiments/...` 等**写死旧路径**；
+- `run_pipeline_phase_gpu.sh` **只有一行**把 `"$@"` 原样交给 `run_mcmipl`（会导致 `bash ... BOOK MOVIE` 把 `MOVIE` 当成 **SEED**）。
+
+**正确做法：**
+
+```bash
+cd interrecbaseline-MCMIPL
+git fetch origin
+git checkout main
+git pull origin main
+git log -1 --oneline
+# 含 handoff 与分阶段脚本的快照应从含「Add CPU/GPU pipeline scripts, handoff」的提交起（例如 e0bd557 及之后）。
+test -f main_table_experiments/run_pipeline_phase_cpu.sh && echo OK_top_level
+grep -q '_RUN_ROOT=' main_table_experiments/run_mcmipl.sh && echo OK_run_mcmipl_relative_paths
+```
+
+**Phase A 无封装时的等价命令**（与 `run_pipeline_phase_cpu.sh` 内部一致，可随时手跑）：
+
+```bash
+BASE=main_table_experiments/baselines/mcmipl_official
+for d in LAST_FM_STAR YELP_STAR BOOK MOVIE; do
+  bash "$BASE/scripts/prepare_data.sh" "$d"
+  bash "$BASE/scripts/run_graph_init.sh" "$d"
+done
+```
+
+**从 `baselines/mcmipl_official/scripts/` 进入的读者**：同版本仓库内也提供**薄转发脚本**（调用上面顶层逻辑），避免「只在子目录里找 `.sh`」时对不上文档：
+
+- `run_pipeline_phase_{cpu,gpu,rl_cpu}.sh`
+- `record_phase_a_artifacts.sh`
+
+---
+
 ## 一、在本地/CPU 机上：从克隆到 Phase A 再到推送
 
 ### 1. 克隆与检查内容
@@ -19,9 +57,9 @@ ls -la main_table_experiments/baselines/mcmipl_official/MCMIPL/data/
 应能看到：
 
 - `main_table_experiments/run_pipeline_phase_cpu.sh`（Phase A，纯 CPU）
-- `main_table_experiments/run_pipeline_phase_gpu.sh`（Phase B，优先 GPU）
+- `main_table_experiments/run_pipeline_phase_gpu.sh`（Phase B，优先 GPU；**内部按「多数据集 × 多 seed」循环**，`BOOK MOVIE` 表示两个数据集，不是把一个当成 seed）
 - `main_table_experiments/run_pipeline_phase_rl_cpu.sh`（Phase B，强制 CPU）
-- `main_table_experiments/run_mcmipl.sh`（路径已相对脚本目录，可设 `MCMIPL_GPU_PYTHON` / `MCMIPL_CPU_PYTHON`）
+- `main_table_experiments/run_mcmipl.sh`（应含 `_RUN_ROOT=...`，路径相对本文件目录；可设 `MCMIPL_GPU_PYTHON` / `MCMIPL_CPU_PYTHON`）
 - `interrec/` 与 `MCMIPL/data/<dataset>/` 数据布局
 
 ### 2. 检查环境（Phase A）
@@ -56,7 +94,17 @@ bash run_pipeline_phase_cpu.sh LAST_FM_STAR YELP_STAR BOOK MOVIE
 
 ### 4. 记录中间产物（便于交接与审计）
 
+**工作目录必须是 `main_table_experiments`**（脚本内路径相对于仓库根计算）：
+
 ```bash
+cd main_table_experiments
+bash scripts/record_phase_a_artifacts.sh
+```
+
+也会在 `main_table_experiments/baselines/mcmipl_official/scripts/` 放同名转发脚本，可从该目录执行：
+
+```bash
+cd main_table_experiments/baselines/mcmipl_official
 bash scripts/record_phase_a_artifacts.sh
 ```
 

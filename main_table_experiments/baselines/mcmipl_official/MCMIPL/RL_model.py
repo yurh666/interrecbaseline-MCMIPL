@@ -148,8 +148,8 @@ def main():
     parser.add_argument('--hidden', type=int, default=100, help='number of samples')
     parser.add_argument('--memory_size', type=int, default=5000, help='size of memory ')
 
-    parser.add_argument('--data_name', type=str, default=YELP_STAR, choices=[ LAST_FM_STAR, YELP_STAR,MOVIE],
-                        help='One of { LAST_FM_STAR, YELP_STAR, BOOK,MOVIE}.')
+    parser.add_argument('--data_name', type=str, default=YELP_STAR, choices=[LAST_FM_STAR, YELP_STAR, BOOK, MOVIE],
+                        help='One of { LAST_FM_STAR, YELP_STAR, BOOK, MOVIE}.')
     parser.add_argument('--entropy_method', type=str, default='match', help='entropy_method is one of {entropy, weight entropy,match}')
     # Although the performance of 'weighted entropy' is better, 'entropy' is an alternative method considering the time cost.
     parser.add_argument('--max_turn', type=int, default=15, help='max conversation turn')
@@ -177,8 +177,13 @@ def main():
 
 
     args = parser.parse_args()
-    os.environ['CUDA_VISIBLE_DEVICES'] = args.gpu
-    args.device = torch.device('cuda') if torch.cuda.is_available() else 'cpu'
+    # run_mcmipl.sh 可导出 MCMIPL_FORCE_CPU=1；勿再用 --gpu 覆盖空的 CUDA_VISIBLE_DEVICES
+    if os.environ.get('MCMIPL_FORCE_CPU'):
+        os.environ['CUDA_VISIBLE_DEVICES'] = ''
+        args.device = torch.device('cpu')
+    else:
+        os.environ['CUDA_VISIBLE_DEVICES'] = args.gpu
+        args.device = torch.device('cuda') if torch.cuda.is_available() else torch.device('cpu')
     print(args.device)
     print('data_set:{}'.format(args.data_name))
     kg = load_kg(args.data_name)

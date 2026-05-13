@@ -1,0 +1,180 @@
+# Phase A artifact manifest
+# generated: 2026-05-13T17:52:43+08:00
+# host: autodl-container-4m2rp8n07l-a6209b1d
+
+## git HEAD
+3499ae5d522504631b5e8fbaca40fedfef821b04
+
+## tmp/* sizes (graph + TransE)
+/root/interrecbaseline-MCMIPL/main_table_experiments/baselines/mcmipl_official/MCMIPL/tmp:
+total 4
+drwxr-xr-x 6 root root   88 May 13 11:23 .
+drwxr-xr-x 8 root root 4096 May 13 12:57 ..
+drwxr-xr-x 4 root root   89 May 13 13:01 book
+drwxr-xr-x 5 root root  113 May 13 11:23 last_fm_star
+drwxr-xr-x 3 root root   69 May 13 11:23 movie
+drwxr-xr-x 5 root root  113 May 13 11:23 yelp_star
+
+/root/interrecbaseline-MCMIPL/main_table_experiments/baselines/mcmipl_official/MCMIPL/tmp/book:
+total 996
+drwxr-xr-x 4 root root     89 May 13 13:01 .
+drwxr-xr-x 6 root root     88 May 13 11:23 ..
+drwxr-xr-x 2 root root    119 May 13 13:01 RL-agent
+-rw-r--r-- 1 root root  56237 May 13 12:57 dataset.pkl
+drwxr-xr-x 3 root root     62 May 13 11:23 embeds
+-rw-r--r-- 1 root root 961920 May 13 12:57 kg.pkl
+
+/root/interrecbaseline-MCMIPL/main_table_experiments/baselines/mcmipl_official/MCMIPL/tmp/book/RL-agent:
+total 108
+drwxr-xr-x 2 root root    119 May 13 13:01 .
+drwxr-xr-x 4 root root     89 May 13 13:01 ..
+-rw-r--r-- 1 root root 110135 May 13 13:01 train-data-BOOK-RL-cand_num-10-cand_item_num-10-embed-transe-seq-transformer-gcn-True-epoch-1.pkl
+
+/root/interrecbaseline-MCMIPL/main_table_experiments/baselines/mcmipl_official/MCMIPL/tmp/book/embeds:
+total 7340
+drwxr-xr-x 3 root root      62 May 13 11:23 .
+drwxr-xr-x 4 root root      89 May 13 13:01 ..
+drwxr-xr-x 2 root root      48 May 13 11:23 .ipynb_checkpoints
+-rw-r--r-- 1 root root 7514346 May 13 12:58 transe.pkl
+
+/root/interrecbaseline-MCMIPL/main_table_experiments/baselines/mcmipl_official/MCMIPL/tmp/book/embeds/.ipynb_checkpoints:
+total 4
+drwxr-xr-x 2 root root 48 May 13 11:23 .
+drwxr-xr-x 3 root root 62 May 13 11:23 ..
+-rw-r--r-- 1 root root 72 May 13 11:23 未命名-checkpoint.ipynb
+
+/root/interrecbaseline-MCMIPL/main_table_experiments/baselines/mcmipl_official/MCMIPL/tmp/last_fm_star:
+total 1852
+drwxr-xr-x 5 root root     113 May 13 11:23 .
+drwxr-xr-x 6 root root      88 May 13 11:23 ..
+drwxr-xr-x 2 root root    4096 May 13 11:23 RL-agent
+drwxr-xr-x 2 root root    4096 May 13 11:23 RL-log-merge
+-rw-r--r-- 1 root root   52532 May 13 11:23 dataset.pkl
+drwxr-xr-x 2 root root      32 May 13 11:23 embeds
+-rw-r--r-- 1 root root 1833404 May 13 11:23 kg.pkl
+
+/root/interrecbaseline-MCMIPL/main_table_experiments/baselines/mcmipl_official/MCMIPL/tmp/last_fm_star/RL-agent:
+total 220
+drwxr-xr-x 2 root root   4096 May 13 11:23 .
+drwxr-xr-x 5 root root    113 May 13 11:23 ..
+-rw-r--r-- 1 root root 110199 May 13 11:23 train-data-LAST_FM_STAR-RL-cand_num-10-cand_item_num-10-embed-transe-seq-transformer-gcn-True-epoch-100.pkl
+-rw-r--r-- 1 root root 110143 May 13 11:23 train-data-LAST_FM_STAR-RL-cand_num-10-cand_item_num-10-embed-transe-seq-transformer-gcn-True-epoch-5.pkl
+
+/root/interrecbaseline-MCMIPL/main_table_experiments/baselines/mcmipl_official/MCMIPL/tmp/last_fm_star/RL-log-merge:
+total 84
+drwxr-xr-x 2 root root  4096 May 13 11:23 .
+drwxr-xr-x 5 root root   113 May 13 11:23 ..
+-rw-r--r-- 1 root root  1126 May 13 11:23 Evaluate-epoch-0-train-data-LAST_FM_STAR-RL-cand_num-10-cand_item_num-10-embed-transe-seq-transformer-gcn-True.txt
+-rw-r--r-- 1 root root   716 May 13 11:23 Evaluate-epoch-1-train-data-LAST_FM_STAR-RL-cand_num-10-cand_item_num-10-embed-transe-seq-transformer-gcn-True.txt
+-rw-r--r-- 1 root root  1111 May 13 11:23 Evaluate-epoch-10-train-data-LAST_FM_STAR-RL-cand_num-10-cand_item_num-10-embed-transe-seq-transformer-gcn-True.txt
+-rw-r--r-- 1 root root  1095 May 13 11:23 Evaluate-epoch-100-train-data-LAST_FM_STAR-RL-cand_num-10-cand_item_num-10-embed-transe-seq-transformer-gcn-True.txt
+-rw-r--r-- 1 root root   360 May 13 11:23 Evaluate-epoch-2-train-data-LAST_FM_STAR-RL-cand_num-10-cand_item_num-10-embed-transe-seq-transformer-gcn-True.txt
+-rw-r--r-- 1 root root  1127 May 13 11:23 Evaluate-epoch-20-train-data-LAST_FM_STAR-RL-cand_num-10-cand_item_num-10-embed-transe-seq-transformer-gcn-True.txt
+-rw-r--r-- 1 root root   372 May 13 11:23 Evaluate-epoch-3-train-data-LAST_FM_STAR-RL-cand_num-10-cand_item_num-10-embed-transe-seq-transformer-gcn-True.txt
+-rw-r--r-- 1 root root  1110 May 13 11:23 Evaluate-epoch-30-train-data-LAST_FM_STAR-RL-cand_num-10-cand_item_num-10-embed-transe-seq-transformer-gcn-True.txt
+-rw-r--r-- 1 root root   372 May 13 11:23 Evaluate-epoch-4-train-data-LAST_FM_STAR-RL-cand_num-10-cand_item_num-10-embed-transe-seq-transformer-gcn-True.txt
+-rw-r--r-- 1 root root  1165 May 13 11:23 Evaluate-epoch-40-train-data-LAST_FM_STAR-RL-cand_num-10-cand_item_num-10-embed-transe-seq-transformer-gcn-True.txt
+-rw-r--r-- 1 root root   384 May 13 11:23 Evaluate-epoch-5-train-data-LAST_FM_STAR-RL-cand_num-10-cand_item_num-10-embed-transe-seq-transformer-gcn-True.txt
+-rw-r--r-- 1 root root  1145 May 13 11:23 Evaluate-epoch-50-train-data-LAST_FM_STAR-RL-cand_num-10-cand_item_num-10-embed-transe-seq-transformer-gcn-True.txt
+-rw-r--r-- 1 root root  1129 May 13 11:23 Evaluate-epoch-60-train-data-LAST_FM_STAR-RL-cand_num-10-cand_item_num-10-embed-transe-seq-transformer-gcn-True.txt
+-rw-r--r-- 1 root root  1137 May 13 11:23 Evaluate-epoch-70-train-data-LAST_FM_STAR-RL-cand_num-10-cand_item_num-10-embed-transe-seq-transformer-gcn-True.txt
+-rw-r--r-- 1 root root  1100 May 13 11:23 Evaluate-epoch-80-train-data-LAST_FM_STAR-RL-cand_num-10-cand_item_num-10-embed-transe-seq-transformer-gcn-True.txt
+-rw-r--r-- 1 root root  1113 May 13 11:23 Evaluate-epoch-90-train-data-LAST_FM_STAR-RL-cand_num-10-cand_item_num-10-embed-transe-seq-transformer-gcn-True.txt
+-rw-r--r-- 1 root root  2541 May 13 11:23 Evaluate-train-data-LAST_FM_STAR-RL-cand_num-10-cand_item_num-10-embed-transe-seq-transformer-gcn-True.txt
+-rw-r--r-- 1 root root 10168 May 13 11:23 train-data-LAST_FM_STAR-RL-cand_num-10-cand_item_num-10-embed-transe-seq-transformer-gcn-True.txt
+
+/root/interrecbaseline-MCMIPL/main_table_experiments/baselines/mcmipl_official/MCMIPL/tmp/last_fm_star/embeds:
+total 4420
+drwxr-xr-x 2 root root      32 May 13 11:23 .
+drwxr-xr-x 5 root root     113 May 13 11:23 ..
+-rw-r--r-- 1 root root 4524012 May 13 11:23 transe.pkl
+
+/root/interrecbaseline-MCMIPL/main_table_experiments/baselines/mcmipl_official/MCMIPL/tmp/movie:
+total 2224
+drwxr-xr-x 3 root root      69 May 13 11:23 .
+drwxr-xr-x 6 root root      88 May 13 11:23 ..
+-rw-r--r-- 1 root root   54063 May 13 12:58 dataset.pkl
+drwxr-xr-x 3 root root      62 May 13 11:23 embeds
+-rw-r--r-- 1 root root 2219005 May 13 12:58 kg.pkl
+
+/root/interrecbaseline-MCMIPL/main_table_experiments/baselines/mcmipl_official/MCMIPL/tmp/movie/embeds:
+total 7468
+drwxr-xr-x 3 root root      62 May 13 11:23 .
+drwxr-xr-x 3 root root      69 May 13 11:23 ..
+drwxr-xr-x 2 root root      48 May 13 11:23 .ipynb_checkpoints
+-rw-r--r-- 1 root root 7646698 May 13 12:58 transe.pkl
+
+/root/interrecbaseline-MCMIPL/main_table_experiments/baselines/mcmipl_official/MCMIPL/tmp/movie/embeds/.ipynb_checkpoints:
+total 4
+drwxr-xr-x 2 root root   48 May 13 11:23 .
+drwxr-xr-x 3 root root   62 May 13 11:23 ..
+-rw-r--r-- 1 root root 1874 May 13 11:23 未命名-checkpoint.ipynb
+
+/root/interrecbaseline-MCMIPL/main_table_experiments/baselines/mcmipl_official/MCMIPL/tmp/yelp_star:
+total 25992
+drwxr-xr-x 5 root root      113 May 13 11:23 .
+drwxr-xr-x 6 root root       88 May 13 11:23 ..
+drwxr-xr-x 2 root root      125 May 13 11:23 RL-agent
+drwxr-xr-x 2 root root     4096 May 13 11:23 RL-log-merge
+-rw-r--r-- 1 root root  9272012 May 13 11:23 dataset.pkl
+drwxr-xr-x 2 root root       32 May 13 11:23 embeds
+-rw-r--r-- 1 root root 17335483 May 13 11:23 kg.pkl
+
+/root/interrecbaseline-MCMIPL/main_table_experiments/baselines/mcmipl_official/MCMIPL/tmp/yelp_star/RL-agent:
+total 108
+drwxr-xr-x 2 root root    125 May 13 11:23 .
+drwxr-xr-x 5 root root    113 May 13 11:23 ..
+-rw-r--r-- 1 root root 110207 May 13 11:23 train-data-YELP_STAR-RL-cand_num-10-cand_item_num-10-embed-transe-seq-transformer-gcn-True-epoch-50.pkl
+
+/root/interrecbaseline-MCMIPL/main_table_experiments/baselines/mcmipl_official/MCMIPL/tmp/yelp_star/RL-log-merge:
+total 40
+drwxr-xr-x 2 root root 4096 May 13 11:23 .
+drwxr-xr-x 5 root root  113 May 13 11:23 ..
+-rw-r--r-- 1 root root 1111 May 13 11:23 Evaluate-epoch-0-train-data-YELP_STAR-RL-cand_num-10-cand_item_num-10-embed-transe-seq-transformer-gcn-True.txt
+-rw-r--r-- 1 root root 1133 May 13 11:23 Evaluate-epoch-10-train-data-YELP_STAR-RL-cand_num-10-cand_item_num-10-embed-transe-seq-transformer-gcn-True.txt
+-rw-r--r-- 1 root root 1114 May 13 11:23 Evaluate-epoch-20-train-data-YELP_STAR-RL-cand_num-10-cand_item_num-10-embed-transe-seq-transformer-gcn-True.txt
+-rw-r--r-- 1 root root 1157 May 13 11:23 Evaluate-epoch-30-train-data-YELP_STAR-RL-cand_num-10-cand_item_num-10-embed-transe-seq-transformer-gcn-True.txt
+-rw-r--r-- 1 root root 1150 May 13 11:23 Evaluate-epoch-40-train-data-YELP_STAR-RL-cand_num-10-cand_item_num-10-embed-transe-seq-transformer-gcn-True.txt
+-rw-r--r-- 1 root root  759 May 13 11:23 Evaluate-epoch-50-train-data-YELP_STAR-RL-cand_num-10-cand_item_num-10-embed-transe-seq-transformer-gcn-True.txt
+-rw-r--r-- 1 root root 1171 May 13 11:23 Evaluate-train-data-YELP_STAR-RL-cand_num-10-cand_item_num-10-embed-transe-seq-transformer-gcn-True.txt
+-rw-r--r-- 1 root root 4509 May 13 11:23 train-data-YELP_STAR-RL-cand_num-10-cand_item_num-10-embed-transe-seq-transformer-gcn-True.txt
+
+/root/interrecbaseline-MCMIPL/main_table_experiments/baselines/mcmipl_official/MCMIPL/tmp/yelp_star/embeds:
+total 24648
+drwxr-xr-x 2 root root       32 May 13 11:23 .
+drwxr-xr-x 5 root root      113 May 13 11:23 ..
+-rw-r--r-- 1 root root 25235694 May 13 11:23 transe.pkl
+
+## sha256: tmp/**/transe.pkl dataset.pkl kg.pkl
+1465a261778247d5c471f87bc2a42a67035f892dbcac06d48f76cd7272338adb  /root/interrecbaseline-MCMIPL/main_table_experiments/baselines/mcmipl_official/MCMIPL/tmp/book/dataset.pkl
+49cba6a945a26ba5b02906f5c0131e8786135d28be30b38436dc12e7a0bd6a0f  /root/interrecbaseline-MCMIPL/main_table_experiments/baselines/mcmipl_official/MCMIPL/tmp/book/embeds/transe.pkl
+b58422c20539760edc2aa53f4a3b8cd71ed54c91410c39c62101143e84996493  /root/interrecbaseline-MCMIPL/main_table_experiments/baselines/mcmipl_official/MCMIPL/tmp/book/kg.pkl
+b693f16f4003581a88ecd8bf2414161c6e9a440e782fb420be7ba56f5b056334  /root/interrecbaseline-MCMIPL/main_table_experiments/baselines/mcmipl_official/MCMIPL/tmp/last_fm_star/dataset.pkl
+086f75459809d5a2a1a5d8a6ab69602e6a0a787a65f83c5fc30efce8581b3658  /root/interrecbaseline-MCMIPL/main_table_experiments/baselines/mcmipl_official/MCMIPL/tmp/last_fm_star/embeds/transe.pkl
+13635b657f2c854db702e2cbc6ae07f27a7ad2f06248f8ee23bd6819cad272cc  /root/interrecbaseline-MCMIPL/main_table_experiments/baselines/mcmipl_official/MCMIPL/tmp/last_fm_star/kg.pkl
+b846e1112cc7f2a6dd6d315f26db067b8219adb8b0eb14c24cb4929a284828cf  /root/interrecbaseline-MCMIPL/main_table_experiments/baselines/mcmipl_official/MCMIPL/tmp/movie/dataset.pkl
+7bf0cdcb4ec678ce531c5d5f30dcf43de40c1db5da4859db076f5ffc9cb5cedd  /root/interrecbaseline-MCMIPL/main_table_experiments/baselines/mcmipl_official/MCMIPL/tmp/movie/embeds/transe.pkl
+b196882e86d642a08792f689896eb65a9d8c7a7de862e2928d2be422d74c58d1  /root/interrecbaseline-MCMIPL/main_table_experiments/baselines/mcmipl_official/MCMIPL/tmp/movie/kg.pkl
+34f6315ed16be6b8b430abf2395a491116669228f328b8f1506f54c5d4f8ebae  /root/interrecbaseline-MCMIPL/main_table_experiments/baselines/mcmipl_official/MCMIPL/tmp/yelp_star/dataset.pkl
+ac224cf5bfec6624b18307150495831811bcc5c38d0cc4e71dc7402cdccfa81c  /root/interrecbaseline-MCMIPL/main_table_experiments/baselines/mcmipl_official/MCMIPL/tmp/yelp_star/embeds/transe.pkl
+b3005a3c2eada06464c438efded01a430f3304fded8802386475300780faceba  /root/interrecbaseline-MCMIPL/main_table_experiments/baselines/mcmipl_official/MCMIPL/tmp/yelp_star/kg.pkl
+
+## MCMIPL data book/movie UI_data (if present)
+total 12
+drwxr-xr-x 2 root root   51 May 13 11:23 .
+drwxr-xr-x 5 root root   80 May 13 11:23 ..
+-rw-r--r-- 1 root root 2457 May 13 12:57 test.pkl
+-rw-r--r-- 1 root root 7993 May 13 12:57 train.pkl
+/root/interrecbaseline-MCMIPL/main_table_experiments/baselines/mcmipl_official/MCMIPL/data/book/UI_data/test.pkl
+038a447d92a33bf2692065f373112a62eb8c242942fb9e26ff9ec25dc1a3260f  /root/interrecbaseline-MCMIPL/main_table_experiments/baselines/mcmipl_official/MCMIPL/data/book/UI_data/test.pkl
+/root/interrecbaseline-MCMIPL/main_table_experiments/baselines/mcmipl_official/MCMIPL/data/book/UI_data/train.pkl
+5a716392924e5cc4929e7363fc5ab16b2ef8dafc2b38c43037c7ba524e6a0558  /root/interrecbaseline-MCMIPL/main_table_experiments/baselines/mcmipl_official/MCMIPL/data/book/UI_data/train.pkl
+total 12
+drwxr-xr-x 2 root root   51 May 13 11:23 .
+drwxr-xr-x 5 root root   80 May 13 11:23 ..
+-rw-r--r-- 1 root root 2503 May 13 12:57 test.pkl
+-rw-r--r-- 1 root root 5058 May 13 12:57 train.pkl
+/root/interrecbaseline-MCMIPL/main_table_experiments/baselines/mcmipl_official/MCMIPL/data/movie/UI_data/test.pkl
+fa296be99f9d070a64dad422ce75e5857092974a5539ea0176273eca43cd32e4  /root/interrecbaseline-MCMIPL/main_table_experiments/baselines/mcmipl_official/MCMIPL/data/movie/UI_data/test.pkl
+/root/interrecbaseline-MCMIPL/main_table_experiments/baselines/mcmipl_official/MCMIPL/data/movie/UI_data/train.pkl
+bc151a4fced90fcb6fe31a91a81b1ef18a61568a74159259865550e62a22d6c2  /root/interrecbaseline-MCMIPL/main_table_experiments/baselines/mcmipl_official/MCMIPL/data/movie/UI_data/train.pkl

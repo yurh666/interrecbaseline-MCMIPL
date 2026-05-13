@@ -66,7 +66,10 @@ def load_embed(dataset, embed, epoch):
 
 def load_rl_agent(dataset, filename, epoch_user):
     model_file = TMP_DIR[dataset] + '/RL-agent/' + filename + '-epoch-{}.pkl'.format(epoch_user)
-    model_dict = torch.load(model_file)
+    try:
+        model_dict = torch.load(model_file, map_location='cpu', weights_only=False)
+    except TypeError:
+        model_dict = torch.load(model_file, map_location='cpu')
     print('RL policy model load at {}'.format(model_file))
     return model_dict
 

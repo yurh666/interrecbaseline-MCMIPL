@@ -207,11 +207,13 @@ class MultiChoiceRecommendEnv(object):
                 
 
         elif self.mode == 'test':
-            # self.user_id = self.ui_array[self.test_num, 0]
-            # self.target_item = self.ui_array[self.test_num, 1]
-            # self.test_num += 1
-            self.user_id = int(self.ui_array[self.test_num, 0])
-            ti = self.ui_array[self.test_num, 1]
+            # eval 可能抽样 epoch_uesr > len(ui_array)；按官方 pairs 循环取样避免越界
+            n_pairs = len(self.ui_array)
+            if n_pairs == 0:
+                raise ValueError('test mode: empty ui_array')
+            idx = self.test_num % n_pairs
+            self.user_id = int(self.ui_array[idx, 0])
+            ti = self.ui_array[idx, 1]
             self.target_item = [int(ti)] if not isinstance(ti, (list, tuple)) else list(ti)
             self.test_num += 1
 
@@ -324,7 +326,8 @@ class MultiChoiceRecommendEnv(object):
         i = torch.LongTensor(i)
         v = torch.FloatTensor(v)
         neighbors = torch.LongTensor(neighbors)
-        adj = torch.sparse.FloatTensor(i.t(), v, torch.Size([len(neighbors),len(neighbors)]))
+        sz = torch.Size([len(neighbors), len(neighbors)])
+        adj = torch.sparse_coo_tensor(i.t(), v, sz, dtype=torch.float32).coalesce()
 
         state = {'cur_node': cur_node,
                  'neighbors': neighbors,

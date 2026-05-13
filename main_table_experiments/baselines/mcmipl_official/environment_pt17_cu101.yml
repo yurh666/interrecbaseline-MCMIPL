@@ -1,0 +1,15 @@
+# 论文对齐栈：Python 3.7 + CUDA 10.1 运行时；PyTorch/DGL 由后台脚本 pip 安装（cu101 轮子）。
+# 说明：官方 cu101 预编译不包含 NVIDIA Ada(sm_89)，RTX 4080 上 GPU 训练仍会失败；可用于 CPU / Turing 及以下 GPU。
+name: mcmipl-pt17-cu101
+channels:
+  - conda-forge
+dependencies:
+  - python=3.7.9
+  - pip
+  - numpy
+  - scipy
+  - pandas
+  - tqdm
+  - networkx
+  - scikit-learn
+  - cudatoolkit=10.1

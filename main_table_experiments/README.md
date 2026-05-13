@@ -73,6 +73,19 @@ bash scripts/prepare_data.sh LAST_FM_STAR
 bash scripts/run_graph_init.sh LAST_FM_STAR
 ```
 
+### 3b. CPU/GPU 分阶段（推荐用于跨机器）
+
+| 阶段 | 脚本 | 说明 |
+|------|------|------|
+| A（CPU） | `run_pipeline_phase_cpu.sh` | 可选 `RUN_REBUILD_BOOK_MOVIE=1`；对每个数据集 `prepare_data` + `graph_init` |
+| B（GPU RL） | `run_pipeline_phase_gpu.sh` | 需已有各集 `tmp/<slug>/embeds/transe.pkl`；可设 `REQUIRE_TRANSE=1` |
+| B（仅 CPU RL） | `run_pipeline_phase_rl_cpu.sh` | 设置 `MCMIPL_FORCE_CPU=1` 后调用 Phase B 调度 |
+| 单机训练入口 | `run_mcmipl.sh` | `MCMIPL_DIR`/`LOG_DIR`/`MCMIPL_*_PYTHON` 可用环境变量覆盖 |
+
+Phase A 完成后可运行 `bash scripts/record_phase_a_artifacts.sh` 生成 `artifacts/phase_a_manifest_*.txt`（sha256 清单），便于提交 git 与交给 GPU 机核对。
+
+完整交接文案与「给 AI 的 GPU Prompt」见仓库根目录 [`docs/HANDOFF_RUNBOOK.md`](../docs/HANDOFF_RUNBOOK.md)。
+
 ### 4. 训练
 
 ```bash

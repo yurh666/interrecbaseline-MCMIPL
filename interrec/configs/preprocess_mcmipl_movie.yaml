@@ -7,16 +7,16 @@ dataset:
   raw_items_path: data/raw_mcmipl_movie/items.csv
   processed_dir: data/processed_mcmipl_movie
   # MCMIPL movie 序列极短：原始交互里单用户最大序列长仅 18，无法用 LastFM 默认的
-  # min_user_interactions=20；同时 observed_ratio=0.4 时 observed 长度约为 floor(0.4*n)，
-  # 若 min_observed_interactions=10 会在 n≤24 时恒不成立。下面阈值在「仍做 observed/future
-  # 时序切分」前提下与本书目数据分布相容。
-  min_user_interactions: 15
+  # min_user_interactions=20；同时 observed_ratio=0.4 时 observed 长度约为 int(0.4*n)，
+  # 若 min_observed_interactions 过大会在短序列下恒不成立。仓库快照里 movie 单用户交互
+  # 最大约 14，故 min_user 不能高于 12；min_observed 需 ≤4 才能覆盖 n=12 用户。
+  min_user_interactions: 12
   min_item_interactions: 5
   observed_ratio: 0.4
   future_train_ratio: 0.7
   future_valid_ratio: 0.1
   future_test_ratio: 0.2
-  min_observed_interactions: 6
+  min_observed_interactions: 4
   min_future_interactions: 5
 
 embedding:

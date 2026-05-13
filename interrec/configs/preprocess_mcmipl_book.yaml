@@ -7,13 +7,16 @@ dataset:
   raw_interactions_path: data/raw_mcmipl_book/interactions.csv
   raw_items_path: data/raw_mcmipl_book/items.csv
   processed_dir: data/processed_mcmipl_book
-  min_user_interactions: 20
-  min_item_interactions: 5
+  # 本仓库随附的 MCMIPL book 交互极稀疏（≈120 用户 / 3k+ item）；沿用 LastFM 默认
+  # min_item=5 会在迭代过滤第二轮把所有用户清空。以下阈值仍保留「用户/物品双向迭代过滤 +
+  # observed/future 时序切」形状，仅压低稀疏快照下的下限；全量官方数据可改回更严阈值。
+  min_user_interactions: 10
+  min_item_interactions: 2
   observed_ratio: 0.4
   future_train_ratio: 0.7
   future_valid_ratio: 0.1
   future_test_ratio: 0.2
-  min_observed_interactions: 10
+  min_observed_interactions: 4
   min_future_interactions: 5
 
 embedding:

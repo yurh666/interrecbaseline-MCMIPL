@@ -1,0 +1,539 @@
+===== 2026-05-13T13:38:27+08:00 setup_gpu_baseline_background START =====
+warning  libmamba 'repo.anaconda.com', a commercial channel hosted by Anaconda.com, is used.
+    
+warning  libmamba Please make sure you understand Anaconda Terms of Services.
+    
+warning  libmamba See: https://legal.anaconda.com/policies/en/
+⚠ Shard Index for pytorch/linux-64 not available, falling back to flat repodata
+Using Flat Repodata for pytorch/linux-64                                                        ✔ Starting
+Using Flat Repodata for pytorch/linux-64                                                  ✔ Done (0.0 sec)
+⚠ Shard Index for pytorch/noarch not available, falling back to flat repodata
+Using Flat Repodata for pytorch/noarch                                                          ✔ Starting
+Using Flat Repodata for pytorch/noarch                                                    ✔ Done (0.0 sec)
+⚠ Shard Index for nvidia/linux-64 not available, falling back to flat repodata
+Using Flat Repodata for nvidia/linux-64                                                         ✔ Starting
+Using Flat Repodata for nvidia/linux-64                                                   ✔ Done (0.0 sec)
+⚠ Shard Index for nvidia/noarch not available, falling back to flat repodata
+Using Flat Repodata for nvidia/noarch                                                           ✔ Starting
+Using Flat Repodata for nvidia/noarch                                                     ✔ Done (0.0 sec)
+⚠ Shard Index for https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/linux-64 not available, falling back to flat repodata
+Using Flat Repodata for https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/li...           ✔ Starting
+Using Flat Repodata for https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/li...     ✔ Done (0.2 sec)
+⚠ Shard Index for https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/noarch not available, falling back to flat repodata
+Using Flat Repodata for https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/no...           ✔ Starting
+Using Flat Repodata for https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/no...     ✔ Done (0.0 sec)
+⚠ Shard Index for https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/linux-64 not available, falling back to flat repodata
+Using Flat Repodata for https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/li...           ✔ Starting
+Using Flat Repodata for https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/li...     ✔ Done (0.0 sec)
+⚠ Shard Index for https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/noarch not available, falling back to flat repodata
+Using Flat Repodata for https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/no...           ✔ Starting
+Using Flat Repodata for https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/no...     ✔ Done (0.0 sec)
+⚠ Shard Index for https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/pytorch/linux-64 not available, falling back to flat repodata
+Using Flat Repodata for https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/pytorc...           ✔ Starting
+Using Flat Repodata for https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/pytorc...     ✔ Done (0.0 sec)
+⚠ Shard Index for https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/pytorch/noarch not available, falling back to flat repodata
+Using Flat Repodata for https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/pytorc...           ✔ Starting
+Using Flat Repodata for https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/pytorc...     ✔ Done (0.0 sec)
+⚠ Shard Index for pkgs/main/linux-64 not available, falling back to flat repodata
+Using Flat Repodata for pkgs/main/linux-64                                                      ✔ Starting
+Using Flat Repodata for pkgs/main/linux-64                                                ✔ Done (0.2 sec)
+⚠ Shard Index for pkgs/main/noarch not available, falling back to flat repodata
+Using Flat Repodata for pkgs/main/noarch                                                        ✔ Starting
+Using Flat Repodata for pkgs/main/noarch                                                  ✔ Done (0.0 sec)
+⚠ Shard Index for pkgs/r/linux-64 not available, falling back to flat repodata
+Using Flat Repodata for pkgs/r/linux-64                                                         ✔ Starting
+Using Flat Repodata for pkgs/r/linux-64                                                   ✔ Done (0.0 sec)
+⚠ Shard Index for pkgs/r/noarch not available, falling back to flat repodata
+Using Flat Repodata for pkgs/r/noarch                                                           ✔ Starting
+Using Flat Repodata for pkgs/r/noarch                                                     ✔ Done (0.0 sec)
+Parsing Packages' Records                                                               ✔ Done (792.8 sec)
+
+Resolving Environment                                                                           ⧖ Starting
+Resolving Environment                                                                    ✔ Done (16.3 sec)
+
+Transaction
+
+  Prefix: /root/miniconda3/envs/mcmipl-baseline-gpu
+
+  Updating specs:
+
+   - python=3.10
+   - pip
+   - numpy
+   - scipy
+   - pandas
+   - tqdm
+   - networkx
+   - scikit-learn
+   - pytorch
+   - torchvision
+   - torchaudio
+   - pytorch-cuda=12.1
+
+
+  Package                      Version  Build                         Channel                                              Size
+─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+  Install:
+─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+  + _libgcc_mutex                  0.1  main                          mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main       3kB
+  + _openmp_mutex                  5.1  1_gnu                         mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main      21kB
+  + aom                         3.13.2  h664349e_0                    mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main       3MB
+  + blas                           1.0  mkl                           mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main       6kB
+  + bottleneck                   1.4.2  py310haa0f9ac_1               mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main     123kB
+  + brotlicffi                 1.2.0.0  py310h7354ed3_0               mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main     379kB
+  + bzip2                        1.0.8  h5eee18b_6                    mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main     268kB
+  + ca-certificates          2026.3.19  h06a4308_0                    mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main     129kB
+  + cairo                       1.18.4  h44eff21_0                    mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main     745kB
+  + certifi                  2026.4.22  py310h06a4308_0               mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main     135kB
+  + cffi                         2.0.0  py310h4eded50_1               mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main     243kB
+  + charset-normalizer           3.4.4  py310h06a4308_0               mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main      84kB
+  + cuda-cudart               12.1.105  0                             nvidia                                              193kB
+  + cuda-cupti                12.1.105  0                             nvidia                                               16MB
+  + cuda-libraries              12.1.0  0                             nvidia                                                2kB
+  + cuda-nvrtc                12.1.105  0                             nvidia                                               21MB
+  + cuda-nvtx                 12.1.105  0                             nvidia                                               58kB
+  + cuda-opencl                13.2.75  h4f1e1d6_0                    nvidia                                               27kB
+  + cuda-runtime                12.1.0  0                             nvidia                                                1kB
+  + cuda-version                  13.2  h6f5e358_3                    nvidia                                               17kB
+  + dav1d                        1.5.3  h3e43c27_0                    mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main     782kB
+  + expat                        2.8.0  h7354ed3_0                    mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main      25kB
+  + ffmpeg                       4.2.2  h20bf706_0                    mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main      63MB
+  + filelock                    3.20.3  py310h06a4308_0               mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main      35kB
+  + fontconfig                  2.15.0  h2c49b7f_0                    mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main     268kB
+  + freetype                    2.14.1  hf5b9546_0                    mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main     649kB
+  + fribidi                     1.0.16  h9fb5f84_0                    mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main      60kB
+  + giflib                       5.2.2  h5eee18b_0                    mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main      82kB
+  + gmp                          6.3.0  h6a678d5_0                    mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main     622kB
+  + gmpy2                        2.2.2  py310ha78e65c_0               mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main     259kB
+  + gnutls                      3.6.15  he1e5248_0                    mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main       1MB
+  + graphite2                   1.3.14  h295c915_1                    mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main     100kB
+  + harfbuzz                    12.3.0  h79d275a_1                    mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main       2MB
+  + icu                           73.1  h6a678d5_0                    mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main      27MB
+  + idna                          3.11  py310h06a4308_0               mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main     201kB
+  + intel-openmp              2025.0.0  h06a4308_1171                 mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main      23MB
+  + jinja2                       3.1.6  py310h06a4308_0               mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main     284kB
+  + joblib                       1.5.3  py310h06a4308_0               mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main     416kB
+  + jpeg                            9f  h5ce9db8_0                    mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main     247kB
+  + lame                         3.100  hbd0596d_1                    mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main     333kB
+  + lcms2                         2.19  he283960_0                    mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main     249kB
+  + ld_impl_linux-64              2.44  h9e0c5a2_3                    mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main     742kB
+  + lerc                         4.1.0  h7354ed3_2                    mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main     273kB
+  + libavif                      1.3.0  h2b90b00_1                    mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main     155kB
+  + libcublas                12.1.0.26  0                             nvidia                                              345MB
+  + libcufft                  11.0.2.4  0                             nvidia                                              108MB
+  + libcufile                1.17.1.22  h4f1e1d6_0                    nvidia                                                1MB
+  + libcurand                10.4.2.55  h91de7bb_0                    nvidia                                               44MB
+  + libcusolver              11.4.4.55  0                             nvidia                                              103MB
+  + libcusparse              12.0.2.55  0                             nvidia                                              171MB
+  + libdeflate                    1.22  h5eee18b_0                    mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main      70kB
+  + libexpat                     2.8.0  h7354ed3_0                    mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main     126kB
+  + libffi                       3.4.8  hc5d346e_2                    mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main     140kB
+  + libgcc                      15.2.0  h69a1729_7                    mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main     825kB
+  + libgcc-ng                   15.2.0  h166f726_7                    mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main      28kB
+  + libgfortran                 15.2.0  h166f726_7                    mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main      28kB
+  + libgfortran5                15.2.0  hc633d37_7                    mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main       2MB
+  + libglib                     2.86.3  h8b17d9a_0                    mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main       4MB
+  + libgomp                     15.2.0  h4751f2c_7                    mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main     446kB
+  + libhwloc                    2.12.1  default_hf1bbc79_1000         mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main       2MB
+  + libiconv                      1.18  h75a1612_0                    mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main     790kB
+  + libidn2                      2.3.4  h5eee18b_0                    mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main     149kB
+  + libjpeg-turbo                2.0.0  h9bf148f_0                    pytorch                                             973kB
+  + libnl                       3.11.0  hb25bd0a_0                    mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main     816kB
+  + libnpp                   12.0.2.50  0                             nvidia                                              147MB
+  + libnsl                       2.0.0  h5eee18b_0                    mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main      32kB
+  + libnvjitlink              12.1.105  0                             nvidia                                               18MB
+  + libnvjpeg                12.1.1.14  0                             nvidia                                                3MB
+  + libopenjpeg                  2.5.4  hee96239_1                    mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main     220kB
+  + libopus                      1.6.1  h9f10d21_0                    mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main     296kB
+  + libpng                      1.6.56  h22898a0_0                    mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main     248kB
+  + libstdcxx                   15.2.0  h39759b7_7                    mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main       4MB
+  + libstdcxx-ng                15.2.0  hc03a8fd_7                    mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main      28kB
+  + libtasn1                    4.21.0  h27ab2c4_0                    mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main      72kB
+  + libtiff                      4.7.1  h029b1ac_0                    mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main     433kB
+  + libunistring                0.9.10  h27cfd23_0                    mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main     548kB
+  + libuuid                     1.41.5  h5eee18b_0                    mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main      28kB
+  + libvpx                       1.7.0  h439df22_0                    mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main       1MB
+  + libwebp                      1.6.0  h089d785_0                    mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main      92kB
+  + libwebp-base                 1.6.0  hb7bb969_0                    mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main     429kB
+  + libxcb                      1.17.0  h9b100fa_0                    mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main     441kB
+  + libxml2                     2.13.9  h2c43086_0                    mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main     685kB
+  + libzlib                      1.3.1  h47b2149_1                    mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main      60kB
+  + llvm-openmp                 14.0.6  h9e868ea_0                    mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main       5MB
+  + lz4-c                        1.9.4  h6a678d5_1                    mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main     159kB
+  + markupsafe                   3.0.2  py310h5eee18b_0               mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main      25kB
+  + mkl                       2025.0.0  hacee8c2_941                  mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main     134MB
+  + mkl-service                  2.5.2  py310hacdc0fc_0               mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main      73kB
+  + mkl_fft                      2.2.0  py310h44c8d7b_0               mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main     161kB
+  + mkl_random                   1.3.0  py310h505adc9_0               mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main     309kB
+  + mpc                          1.3.1  h5eee18b_0                    mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main     132kB
+  + mpfr                         4.2.1  h5eee18b_0                    mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main     841kB
+  + mpmath                       1.3.0  py310h06a4308_0               mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main     854kB
+  + ncurses                        6.5  h7934f7d_0                    mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main       1MB
+  + nettle                       3.7.3  hbbd107a_1                    mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main     829kB
+  + networkx                     3.4.2  py310h06a4308_0               mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main       3MB
+  + numexpr                     2.14.1  py310hf74ea54_1               mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main     188kB
+  + numpy                        2.2.5  py310h08c6c3d_3               mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main      10kB
+  + numpy-base                   2.2.5  py310h00548fb_3               mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main       8MB
+  + ocl-icd                      2.3.3  h47b2149_0                    mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main     108kB
+  + opencl-headers          2025.07.22  hfb20e49_0                    mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main      53kB
+  + openh264                     2.1.1  h4ff587b_0                    mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main     728kB
+  + openssl                      3.5.6  h1b28b03_0                    mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main       6MB
+  + packaging                     26.0  py310h06a4308_0               mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main     169kB
+  + pandas                       2.3.3  py310h23c847b_1               mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main      12MB
+  + pcre2                        10.46  hf426167_0                    mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main       1MB
+  + pillow                      12.2.0  py310haa37d31_0               mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main      37MB
+  + pip                         26.0.1  pyhc872135_1                  mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main       1MB
+  + pixman                      0.46.4  h7934f7d_0                    mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main       2MB
+  + pthread-stubs                  0.3  h0ce48e5_1                    mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main       5kB
+  + pycparser                      3.0  py310h06a4308_0               mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main     130kB
+  + pysocks                      1.7.1  py310h06a4308_1               mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main      30kB
+  + python                     3.10.20  h741d88c_0                    mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main      25MB
+  + python-dateutil         2.9.0post0  py310h06a4308_2               mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main     287kB
+  + python-tzdata               2026.2  pyhd3eb1b0_0                  mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main     143kB
+  + pytorch                      2.5.1  py3.10_cuda12.1_cudnn9.1.0_0  pytorch                                               1GB
+  + pytorch-cuda                  12.1  ha16c6d3_6                    pytorch                                               7kB
+  + pytorch-mutex                  1.0  cuda                          pytorch                                               3kB
+  + pytz                  2026.1.post1  py310h06a4308_0               mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main     216kB
+  + pyyaml                       6.0.3  py310h591646f_0               mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main     226kB
+  + rdma-core                     61.0  h7354ed3_0                    mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main       1MB
+  + readline                       8.3  hc2a1206_0                    mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main     482kB
+  + requests                    2.33.1  py310h06a4308_0               mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main     146kB
+  + scikit-learn                 1.7.2  py310h86c3e14_1               mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main       8MB
+  + scipy                       1.15.3  py310h4c24699_2               mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main      23MB
+  + setuptools                  82.0.1  py310h06a4308_0               mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main       1MB
+  + six                         1.17.0  py310h06a4308_0               mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main      32kB
+  + sqlite                      3.51.2  h3e8d24a_0                    mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main       1MB
+  + sympy                       1.14.0  py310h06a4308_1               mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main      11MB
+  + tbb                       2022.3.0  h698db13_0                    mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main     185kB
+  + tbb-devel                 2022.3.0  h698db13_0                    mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main       1MB
+  + threadpoolctl                3.5.0  py310h7040dfc_1               mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main      43kB
+  + tk                          8.6.15  h54e0aa7_0                    mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main       4MB
+  + torchaudio                   2.5.1  py310_cu121                   pytorch                                               7MB
+  + torchtriton                  3.1.0  py310                         pytorch                                             245MB
+  + torchvision                 0.20.1  py310_cu121                   pytorch                                               9MB
+  + tqdm                        4.67.3  py310h7040dfc_1               mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main     134kB
+  + typing_extensions           4.15.0  py310h06a4308_0               mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main      82kB
+  + tzdata                       2026a  he532380_0                    mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main     120kB
+  + urllib3                      2.7.0  py310h06a4308_0               mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main     304kB
+  + wheel                       0.46.3  py310h06a4308_0               mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main      55kB
+  + x264                1!157.20191217  h7b6447c_0                    mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main     944kB
+  + xorg-libx11                 1.8.12  h9b100fa_1                    mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main     916kB
+  + xorg-libxau                 1.0.12  h9b100fa_0                    mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main      14kB
+  + xorg-libxdmcp                1.1.5  h9b100fa_0                    mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main      19kB
+  + xorg-libxext                 1.3.6  h9b100fa_0                    mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main      50kB
+  + xorg-libxrender             0.9.12  h9b100fa_0                    mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main      32kB
+  + xorg-xorgproto              2024.1  h5eee18b_1                    mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main     594kB
+  + xz                           5.8.2  h448239c_0                    mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main     636kB
+  + yaml                         0.2.5  h7b6447c_0                    mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main      77kB
+  + zlib                         1.3.1  h47b2149_1                    mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main      91kB
+  + zstd                         1.5.7  h11fc155_0                    mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main     623kB
+
+  Summary:
+
+  Install: 152 packages
+
+  Total download: 3GB
+
+─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+
+Transaction starting
+Linking libcublas-12.1.0.26-0
+Linking libcufft-11.0.2.4-0
+Linking libcusolver-11.4.4.55-0
+Linking libcusparse-12.0.2.55-0
+Linking libnpp-12.0.2.50-0
+Linking libnvjitlink-12.1.105-0
+Linking cuda-cudart-12.1.105-0
+Linking cuda-nvrtc-12.1.105-0
+Linking libnvjpeg-12.1.1.14-0
+Linking cuda-cupti-12.1.105-0
+Linking cuda-nvtx-12.1.105-0
+Linking blas-1.0-mkl
+Linking ld_impl_linux-64-2.44-h9e0c5a2_3
+Linking ca-certificates-2026.3.19-h06a4308_0
+Linking intel-openmp-2025.0.0-h06a4308_1171
+Linking _libgcc_mutex-0.1-main
+Linking libgomp-15.2.0-h4751f2c_7
+Linking opencl-headers-2025.07.22-hfb20e49_0
+Linking _openmp_mutex-5.1-1_gnu
+Linking libgcc-15.2.0-h69a1729_7
+Linking libiconv-1.18-h75a1612_0
+Linking libtasn1-4.21.0-h27ab2c4_0
+Linking libopus-1.6.1-h9f10d21_0
+Linking lame-3.100-hbd0596d_1
+Linking dav1d-1.5.3-h3e43c27_0
+Linking libwebp-base-1.6.0-hb7bb969_0
+Linking fribidi-1.0.16-h9fb5f84_0
+Linking ocl-icd-2.3.3-h47b2149_0
+Linking libgcc-ng-15.2.0-h166f726_7
+Linking xz-5.8.2-h448239c_0
+Linking openssl-3.5.6-h1b28b03_0
+Linking libzlib-1.3.1-h47b2149_1
+Linking libstdcxx-15.2.0-h39759b7_7
+Linking libgfortran5-15.2.0-hc633d37_7
+Linking libunistring-0.9.10-h27cfd23_0
+Linking x264-1!157.20191217-h7b6447c_0
+Linking libdeflate-1.22-h5eee18b_0
+Linking giflib-5.2.2-h5eee18b_0
+Linking xorg-libxdmcp-1.1.5-h9b100fa_0
+Linking xorg-libxau-1.0.12-h9b100fa_0
+Linking pthread-stubs-0.3-h0ce48e5_1
+Linking libopenjpeg-2.5.4-hee96239_1
+Linking jpeg-9f-h5ce9db8_0
+Linking yaml-0.2.5-h7b6447c_0
+Linking libnl-3.11.0-hb25bd0a_0
+Linking xorg-xorgproto-2024.1-h5eee18b_1
+Linking ncurses-6.5-h7934f7d_0
+Linking libuuid-1.41.5-h5eee18b_0
+Linking libnsl-2.0.0-h5eee18b_0
+Linking bzip2-1.0.8-h5eee18b_6
+Linking zlib-1.3.1-h47b2149_1
+Linking libpng-1.6.56-h22898a0_0
+Linking aom-3.13.2-h664349e_0
+Linking lerc-4.1.0-h7354ed3_2
+Linking libstdcxx-ng-15.2.0-hc03a8fd_7
+Linking libffi-3.4.8-hc5d346e_2
+Linking libexpat-2.8.0-h7354ed3_0
+Linking libgfortran-15.2.0-h166f726_7
+Linking libidn2-2.3.4-h5eee18b_0
+Linking libxcb-1.17.0-h9b100fa_0
+Linking rdma-core-61.0-h7354ed3_0
+Linking readline-8.3-hc2a1206_0
+Linking pcre2-10.46-hf426167_0
+Linking llvm-openmp-14.0.6-h9e868ea_0
+warning  libmamba [llvm-openmp-14.0.6-h9e868ea_0] The following files were already present in the environment:
+    - lib/libarcher_static.a
+    - lib/libiomp5.so
+    - lib/libomptarget.so
+Linking freetype-2.14.1-hf5b9546_0
+Linking libavif-1.3.0-h2b90b00_1
+Linking lz4-c-1.9.4-h6a678d5_1
+Linking pixman-0.46.4-h7934f7d_0
+Linking openh264-2.1.1-h4ff587b_0
+Linking libvpx-1.7.0-h439df22_0
+Linking gmp-6.3.0-h6a678d5_0
+Linking icu-73.1-h6a678d5_0
+Linking graphite2-1.3.14-h295c915_1
+Linking expat-2.8.0-h7354ed3_0
+Linking xorg-libx11-1.8.12-h9b100fa_1
+Linking sqlite-3.51.2-h3e8d24a_0
+Linking libglib-2.86.3-h8b17d9a_0
+Linking zstd-1.5.7-h11fc155_0
+Linking nettle-3.7.3-hbbd107a_1
+Linking mpfr-4.2.1-h5eee18b_0
+Linking libxml2-2.13.9-h2c43086_0
+Linking xorg-libxrender-0.9.12-h9b100fa_0
+Linking xorg-libxext-1.3.6-h9b100fa_0
+Linking tk-8.6.15-h54e0aa7_0
+Linking libtiff-4.7.1-h029b1ac_0
+Linking gnutls-3.6.15-he1e5248_0
+Linking mpc-1.3.1-h5eee18b_0
+Linking fontconfig-2.15.0-h2c49b7f_0
+Linking libhwloc-2.12.1-default_hf1bbc79_1000
+Linking lcms2-2.19-he283960_0
+Linking libwebp-1.6.0-h089d785_0
+Linking ffmpeg-4.2.2-h20bf706_0
+Linking cairo-1.18.4-h44eff21_0
+Linking tbb-2022.3.0-h698db13_0
+Linking harfbuzz-12.3.0-h79d275a_1
+Linking tbb-devel-2022.3.0-h698db13_0
+Linking mkl-2025.0.0-hacee8c2_941
+Linking tzdata-2026a-he532380_0
+Linking cuda-version-13.2-h6f5e358_3
+Linking pytorch-mutex-1.0-cuda
+Linking libjpeg-turbo-2.0.0-h9bf148f_0
+warning  libmamba [libjpeg-turbo-2.0.0-h9bf148f_0] The following files were already present in the environment:
+    - bin/cjpeg
+    - bin/djpeg
+    - bin/jpegtran
+    - bin/rdjpgcom
+    - bin/wrjpgcom
+    - include/jconfig.h
+    - include/jerror.h
+    - include/jmorecfg.h
+    - include/jpeglib.h
+    - lib/libjpeg.a
+    - lib/libjpeg.so
+    - lib/pkgconfig/libjpeg.pc
+    - share/man/man1/cjpeg.1
+    - share/man/man1/djpeg.1
+    - share/man/man1/jpegtran.1
+    - share/man/man1/rdjpgcom.1
+    - share/man/man1/wrjpgcom.1
+Linking python-3.10.20-h741d88c_0
+Linking packaging-26.0-py310h06a4308_0
+Linking setuptools-82.0.1-py310h06a4308_0
+Linking wheel-0.46.3-py310h06a4308_0
+Linking libcurand-10.4.2.55-h91de7bb_0
+Linking libcufile-1.17.1.22-h4f1e1d6_0
+Linking cuda-opencl-13.2.75-h4f1e1d6_0
+Linking cuda-libraries-12.1.0-0
+Linking cuda-runtime-12.1.0-0
+Linking pip-26.0.1-pyhc872135_1
+Linking python-tzdata-2026.2-pyhd3eb1b0_0
+Linking pytorch-cuda-12.1-ha16c6d3_6
+Linking pycparser-3.0-py310h06a4308_0
+Linking pysocks-1.7.1-py310h06a4308_1
+Linking markupsafe-3.0.2-py310h5eee18b_0
+Linking six-1.17.0-py310h06a4308_0
+Linking idna-3.11-py310h06a4308_0
+Linking charset-normalizer-3.4.4-py310h06a4308_0
+Linking certifi-2026.4.22-py310h06a4308_0
+Linking mpmath-1.3.0-py310h06a4308_0
+Linking gmpy2-2.2.2-py310ha78e65c_0
+Linking typing_extensions-4.15.0-py310h06a4308_0
+Linking pyyaml-6.0.3-py310h591646f_0
+Linking filelock-3.20.3-py310h06a4308_0
+Linking pillow-12.2.0-py310haa37d31_0
+Linking pytz-2026.1.post1-py310h06a4308_0
+Linking threadpoolctl-3.5.0-py310h7040dfc_1
+Linking joblib-1.5.3-py310h06a4308_0
+Linking mkl-service-2.5.2-py310hacdc0fc_0
+Linking tqdm-4.67.3-py310h7040dfc_1
+Linking networkx-3.4.2-py310h06a4308_0
+Linking cffi-2.0.0-py310h4eded50_1
+Linking jinja2-3.1.6-py310h06a4308_0
+Linking python-dateutil-2.9.0post0-py310h06a4308_2
+Linking sympy-1.14.0-py310h06a4308_1
+Linking numpy-base-2.2.5-py310h00548fb_3
+Linking brotlicffi-1.2.0.0-py310h7354ed3_0
+Linking numpy-2.2.5-py310h08c6c3d_3
+Linking mkl_fft-2.2.0-py310h44c8d7b_0
+Linking urllib3-2.7.0-py310h06a4308_0
+Linking mkl_random-1.3.0-py310h505adc9_0
+Linking requests-2.33.1-py310h06a4308_0
+Linking numexpr-2.14.1-py310hf74ea54_1
+Linking bottleneck-1.4.2-py310haa0f9ac_1
+Linking scipy-1.15.3-py310h4c24699_2
+Linking pandas-2.3.3-py310h23c847b_1
+Linking scikit-learn-1.7.2-py310h86c3e14_1
+Linking pytorch-2.5.1-py3.10_cuda12.1_cudnn9.1.0_0
+Linking torchtriton-3.1.0-py310
+Linking torchvision-0.20.1-py310_cu121
+Linking torchaudio-2.5.1-py310_cu121
+
+Transaction finished
+
+
+To activate this environment, use:
+
+    micromamba activate mcmipl-baseline-gpu
+
+Or to execute a single command in this environment, use:
+
+    micromamba run -n mcmipl-baseline-gpu mycommand
+
+Looking in indexes: https://pypi.tuna.tsinghua.edu.cn/simple
+Requirement already satisfied: pip in /root/miniconda3/envs/mcmipl-baseline-gpu/lib/python3.10/site-packages (26.0.1)
+Collecting pip
+  Downloading https://pypi.tuna.tsinghua.edu.cn/packages/3a/eb/fea4d1d51c49832120f7f285d07306db3960f423a2612c6057caf3e8196f/pip-26.1.1-py3-none-any.whl (1.8 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.8/1.8 MB 8.3 MB/s  0:00:00
+
+Installing collected packages: pip
+  Attempting uninstall: pip
+    Found existing installation: pip 26.0.1
+    Uninstalling pip-26.0.1:
+      Successfully uninstalled pip-26.0.1
+Successfully installed pip-26.1.1
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+Looking in indexes: https://pypi.tuna.tsinghua.edu.cn/simple
+Collecting easydict
+  Downloading easydict-1.13-py3-none-any.whl (6.8 kB)
+Collecting ipdb
+  Downloading ipdb-0.13.13-py3-none-any.whl (12 kB)
+Requirement already satisfied: pyyaml in /root/miniconda3/envs/mcmipl-baseline-gpu/lib/python3.10/site-packages (6.0.3)
+Collecting ipython>=7.31.1 (from ipdb)
+  Downloading ipython-8.39.0-py3-none-any.whl (831 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 831.8/831.8 kB 13.4 MB/s  0:00:00
+
+Collecting tomli (from ipdb)
+  Downloading tomli-2.4.1-py3-none-any.whl (14 kB)
+Collecting decorator (from ipdb)
+  Downloading decorator-5.2.1-py3-none-any.whl (9.2 kB)
+Collecting exceptiongroup (from ipython>=7.31.1->ipdb)
+  Downloading exceptiongroup-1.3.1-py3-none-any.whl (16 kB)
+Collecting jedi>=0.16 (from ipython>=7.31.1->ipdb)
+  Downloading jedi-0.20.0-py2.py3-none-any.whl (4.9 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.9/4.9 MB 25.3 MB/s  0:00:00
+
+Collecting matplotlib-inline (from ipython>=7.31.1->ipdb)
+  Downloading matplotlib_inline-0.2.2-py3-none-any.whl (9.5 kB)
+Collecting pexpect>4.3 (from ipython>=7.31.1->ipdb)
+  Downloading pexpect-4.9.0-py2.py3-none-any.whl (63 kB)
+Collecting prompt_toolkit<3.1.0,>=3.0.41 (from ipython>=7.31.1->ipdb)
+  Downloading prompt_toolkit-3.0.52-py3-none-any.whl (391 kB)
+Collecting pygments>=2.4.0 (from ipython>=7.31.1->ipdb)
+  Downloading pygments-2.20.0-py3-none-any.whl (1.2 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.2/1.2 MB 87.9 MB/s  0:00:00
+
+Collecting stack_data (from ipython>=7.31.1->ipdb)
+  Downloading stack_data-0.6.3-py3-none-any.whl (24 kB)
+Collecting traitlets>=5.13.0 (from ipython>=7.31.1->ipdb)
+  Downloading traitlets-5.15.0-py3-none-any.whl (85 kB)
+Requirement already satisfied: typing_extensions>=4.6 in /root/miniconda3/envs/mcmipl-baseline-gpu/lib/python3.10/site-packages (from ipython>=7.31.1->ipdb) (4.15.0)
+Collecting wcwidth (from prompt_toolkit<3.1.0,>=3.0.41->ipython>=7.31.1->ipdb)
+  Downloading wcwidth-0.7.0-py3-none-any.whl (110 kB)
+Collecting parso<0.9.0,>=0.8.6 (from jedi>=0.16->ipython>=7.31.1->ipdb)
+  Downloading parso-0.8.7-py2.py3-none-any.whl (107 kB)
+Collecting ptyprocess>=0.5 (from pexpect>4.3->ipython>=7.31.1->ipdb)
+  Downloading ptyprocess-0.7.0-py2.py3-none-any.whl (13 kB)
+Collecting executing>=1.2.0 (from stack_data->ipython>=7.31.1->ipdb)
+  Downloading executing-2.2.1-py2.py3-none-any.whl (28 kB)
+Collecting asttokens>=2.1.0 (from stack_data->ipython>=7.31.1->ipdb)
+  Downloading asttokens-3.0.1-py3-none-any.whl (27 kB)
+Collecting pure-eval (from stack_data->ipython>=7.31.1->ipdb)
+  Downloading pure_eval-0.2.3-py3-none-any.whl (11 kB)
+Installing collected packages: pure-eval, ptyprocess, easydict, wcwidth, traitlets, tomli, pygments, pexpect, parso, executing, exceptiongroup, decorator, asttokens, stack_data, prompt_toolkit, matplotlib-inline, jedi, ipython, ipdb
+
+
+Successfully installed asttokens-3.0.1 decorator-5.2.1 easydict-1.13 exceptiongroup-1.3.1 executing-2.2.1 ipdb-0.13.13 ipython-8.39.0 jedi-0.20.0 matplotlib-inline-0.2.2 parso-0.8.7 pexpect-4.9.0 prompt_toolkit-3.0.52 ptyprocess-0.7.0 pure-eval-0.2.3 pygments-2.20.0 stack_data-0.6.3 tomli-2.4.1 traitlets-5.15.0 wcwidth-0.7.0
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+Looking in indexes: http://mirrors.aliyun.com/pypi/simple
+Looking in links: https://data.dgl.ai/wheels/cu121/repo.html
+Collecting dgl
+  Downloading dgl-2.1.0%2Bcu121-cp310-cp310-manylinux1_x86_64.whl (467.5 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 467.5/467.5 MB 14.2 MB/s  0:00:33
+
+Requirement already satisfied: numpy>=1.14.0 in /root/miniconda3/envs/mcmipl-baseline-gpu/lib/python3.10/site-packages (from dgl) (2.2.5)
+Requirement already satisfied: scipy>=1.1.0 in /root/miniconda3/envs/mcmipl-baseline-gpu/lib/python3.10/site-packages (from dgl) (1.15.3)
+Requirement already satisfied: networkx>=2.1 in /root/miniconda3/envs/mcmipl-baseline-gpu/lib/python3.10/site-packages (from dgl) (3.4.2)
+Requirement already satisfied: requests>=2.19.0 in /root/miniconda3/envs/mcmipl-baseline-gpu/lib/python3.10/site-packages (from dgl) (2.33.1)
+Requirement already satisfied: tqdm in /root/miniconda3/envs/mcmipl-baseline-gpu/lib/python3.10/site-packages (from dgl) (4.67.3)
+Collecting psutil>=5.8.0 (from dgl)
+  Downloading psutil-7.2.2-cp36-abi3-manylinux2010_x86_64.manylinux_2_12_x86_64.manylinux_2_28_x86_64.whl (155 kB)
+Collecting torchdata>=0.5.0 (from dgl)
+  Downloading torchdata-0.11.0-py3-none-any.whl (61 kB)
+Requirement already satisfied: charset_normalizer<4,>=2 in /root/miniconda3/envs/mcmipl-baseline-gpu/lib/python3.10/site-packages (from requests>=2.19.0->dgl) (3.4.4)
+Requirement already satisfied: idna<4,>=2.5 in /root/miniconda3/envs/mcmipl-baseline-gpu/lib/python3.10/site-packages (from requests>=2.19.0->dgl) (3.11)
+Requirement already satisfied: urllib3<3,>=1.26 in /root/miniconda3/envs/mcmipl-baseline-gpu/lib/python3.10/site-packages (from requests>=2.19.0->dgl) (2.7.0)
+Requirement already satisfied: certifi>=2023.5.7 in /root/miniconda3/envs/mcmipl-baseline-gpu/lib/python3.10/site-packages (from requests>=2.19.0->dgl) (2026.4.22)
+Requirement already satisfied: torch>=2 in /root/miniconda3/envs/mcmipl-baseline-gpu/lib/python3.10/site-packages (from torchdata>=0.5.0->dgl) (2.5.1)
+Requirement already satisfied: filelock in /root/miniconda3/envs/mcmipl-baseline-gpu/lib/python3.10/site-packages (from torch>=2->torchdata>=0.5.0->dgl) (3.20.3)
+Requirement already satisfied: typing-extensions>=4.8.0 in /root/miniconda3/envs/mcmipl-baseline-gpu/lib/python3.10/site-packages (from torch>=2->torchdata>=0.5.0->dgl) (4.15.0)
+Requirement already satisfied: jinja2 in /root/miniconda3/envs/mcmipl-baseline-gpu/lib/python3.10/site-packages (from torch>=2->torchdata>=0.5.0->dgl) (3.1.6)
+Collecting fsspec (from torch>=2->torchdata>=0.5.0->dgl)
+  Downloading fsspec-2026.4.0-py3-none-any.whl (203 kB)
+Collecting sympy==1.13.1 (from torch>=2->torchdata>=0.5.0->dgl)
+  Downloading sympy-1.13.1-py3-none-any.whl (6.2 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.2/6.2 MB 668.6 kB/s  0:00:09
+
+Requirement already satisfied: mpmath<1.4,>=1.1.0 in /root/miniconda3/envs/mcmipl-baseline-gpu/lib/python3.10/site-packages (from sympy==1.13.1->torch>=2->torchdata>=0.5.0->dgl) (1.3.0)
+Requirement already satisfied: MarkupSafe>=2.0 in /root/miniconda3/envs/mcmipl-baseline-gpu/lib/python3.10/site-packages (from jinja2->torch>=2->torchdata>=0.5.0->dgl) (3.0.2)
+Installing collected packages: sympy, psutil, fsspec, torchdata, dgl
+  Attempting uninstall: sympy
+    Found existing installation: sympy 1.14.0
+    Uninstalling sympy-1.14.0:
+      Successfully uninstalled sympy-1.14.0
+
+
+Successfully installed dgl-2.1.0+cu121 fsspec-2026.4.0 psutil-7.2.2 sympy-1.13.1 torchdata-0.11.0
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+--- GPU smoke ---
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/root/miniconda3/envs/mcmipl-baseline-gpu/lib/python3.10/site-packages/torch/__init__.py", line 367, in <module>
+    from torch._C import *  # noqa: F403
+ImportError: /root/miniconda3/envs/mcmipl-baseline-gpu/lib/python3.10/site-packages/torch/lib/libtorch_cpu.so: undefined symbol: iJIT_NotifyEvent

@@ -10,9 +10,6 @@ import gzip
 import numpy as np
 import time
 
-from dgl import DGLGraph
-from dgl.data import register_data_args, load_data
-from dgl.nn.pytorch.conv import SAGEConv
 import dgl.nn as dglnn
 import dgl.function as fn
 import dgl

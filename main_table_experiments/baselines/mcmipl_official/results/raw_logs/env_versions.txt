@@ -1,0 +1,6 @@
+===== environment versions 2026-05-13T12:54:34+08:00 =====
+python 3.7.9 | packaged by conda-forge | (default, Feb 13 2021, 20:03:11)  [GCC 9.3.0]
+torch 1.7.1+cu101
+cuda_available True
+dgl 0.6.0
+numpy 1.21.6

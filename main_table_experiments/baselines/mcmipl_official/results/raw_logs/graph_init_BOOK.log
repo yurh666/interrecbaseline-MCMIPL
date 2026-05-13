@@ -1,0 +1,7 @@
+===== graph_init =====
+data_name=BOOK
+cwd=/home/yurh/interrecbaseline-MCMIPL/main_table_experiments/baselines/mcmipl_official/MCMIPL
+Wed May 13 06:13:52 PM CST 2026
+Using backend: pytorch
+  0%|          | 0/104 [00:00<?, ?it/s]100%|██████████| 104/104 [00:00<00:00, 244100.51it/s]
+Wed May 13 06:13:54 PM CST 2026

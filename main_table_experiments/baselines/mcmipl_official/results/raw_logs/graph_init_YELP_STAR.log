@@ -1,0 +1,46 @@
+===== graph_init =====
+data_name=YELP_STAR
+cwd=/home/yurh/interrecbaseline-MCMIPL/main_table_experiments/baselines/mcmipl_official/MCMIPL
+Wed May 13 06:13:45 PM CST 2026
+Using backend: pytorch
+Load YELP_STAR from file...
+./tmp/yelp_star
+Load user of size 27629
+user of max id is 27674
+Load item of size 70311
+item of max id is 70310
+Load feature of size 590
+feature of max id is 589
+Load large_feature of size 29
+large_feature of max id is 28
+Load interact of size 1368606
+Load friends of size 688209
+Load like of size 0
+Load belong_to of size 477012
+Load belong_to_large of size 350175
+Load link_to_feature of size 565
+Save YELP_STAR dataset successfully!
+Create YELP_STAR graph from data_name...
+load entities...
+load entity:user  : Total 27675 nodes.
+load entity:item  : Total 70311 nodes.
+load entity:feature  : Total 590 nodes.
+load entity:large_feature  : Total 29 nodes.
+ALL total 98605 nodes.
+===============END==============
+Load knowledge interact...
+Total 2737212 interact edges.
+Load knowledge friends...
+Total 1376418 friends edges.
+Load knowledge like...
+Total 0 like edges.
+Load knowledge belong_to...
+Total 954024 belong_to edges.
+Load knowledge belong_to_large...
+Total 700350 belong_to_large edges.
+Load knowledge link_to_feature...
+Total 1130 link_to_feature edges.
+===============END==============
+Remove duplicates...
+Save YELP_STAR graph successfully!
+Wed May 13 06:13:52 PM CST 2026

@@ -3,7 +3,7 @@
 # 不是「只改一个 json」：覆盖 review_dict + UI_data pkl 后必须 graph_init；TransE/RL 需另跑。
 set -euo pipefail
 
-# 默认路径：假定本仓库布局为 <repo>/interrec + <repo>/main_table_experiments/baselines/mcmipl_official
+# clone 后默认路径：<repo>/interrec 与 <repo>/main_table_experiments/baselines/mcmipl_official
 _SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 _REPO_ROOT="$(cd "${_SCRIPT_DIR}/../../../.." && pwd)"
 INTERREC="${INTERREC:-${_REPO_ROOT}/interrec}"

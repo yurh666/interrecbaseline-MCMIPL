@@ -1,6 +1,8 @@
 # 远程服务器：完整 MCMIPL + 继续跑 BOOK / MOVIE（可复制 Prompt）
 
-将 **「分隔线以内」整段 **复制到新服务器的 Cursor / ChatGPT，在 **Ubuntu + NVIDIA GPU（建议 ≥16GB）+ CUDA 与 conda** 齐备的机器上执行。
+**更细的逐步命令清单**（含 QUICK 烟测、`collect_results`、分析要点）：见同目录 **[`PROMPT_REMOTE_BOOK_MOVIE_FULL_PIPELINE.md`](./PROMPT_REMOTE_BOOK_MOVIE_FULL_PIPELINE.md)**。本文是面向助手的精简版整块 Prompt。
+
+将 **「分隔线以内」整段** 复制到新服务器的 Cursor / ChatGPT，在 **Ubuntu + NVIDIA GPU（建议 ≥16GB）+ CUDA 与 conda** 齐备的机器上执行。
 
 ---
 

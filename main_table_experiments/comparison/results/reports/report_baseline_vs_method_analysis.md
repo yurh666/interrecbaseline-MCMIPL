@@ -160,6 +160,3 @@
 
 ---
 
-## 维护备注
-
-数据更新：`cd main_table_experiments && python3 comparison/collect_results.py`。**附**：seed 2 若以后要「严格满 50 步」再对齐，可重跑 `run_mcmipl.sh YELP_STAR 2 50 …`。

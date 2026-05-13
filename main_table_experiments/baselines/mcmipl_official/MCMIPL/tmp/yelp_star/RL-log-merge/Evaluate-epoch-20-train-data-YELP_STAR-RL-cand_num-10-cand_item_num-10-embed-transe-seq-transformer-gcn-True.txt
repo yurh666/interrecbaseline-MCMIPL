@@ -24,3 +24,16 @@ Training epocch:20
 ===========Test Turn===============
 Testing 2499 user tuples
 ================================
+===========Test===============
+Testing 2499 user tuples
+Testing SR@5: 0.1796
+Testing SR@10: 0.3084
+Testing SR@15: 0.392
+Testing Avg@T: 11.698
+Testing hDCG: 0.1612743527486769
+Testing time: 12882.756860733032
+================================
+Training epocch:20
+===========Test Turn===============
+Testing 2499 user tuples
+================================

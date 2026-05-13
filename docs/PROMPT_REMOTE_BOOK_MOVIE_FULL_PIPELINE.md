@@ -70,22 +70,29 @@ QUICK=0 bash main_table_experiments/baselines/mcmipl_official/scripts/rebuild_bo
 
 ### 第五步：RL 训练（多 seed）
 
-在 `MCMIPL/` 目录、已激活 conda 前提下，对齐主表超参示例（与 `run_mcmipl.sh` 同类）：
+对齐主表：**`main_table_experiments/run_mcmipl.sh`** 已写好与 `RL_model.py` 一致的参数（`sample_times=100`、`save_num=max_steps` 等）。远端先**编辑该文件**三处绝对路径为本机：
+
+- `PYTHON=` → 你的 conda 里 `python` 可执行文件  
+- `MCMIPL_DIR=` → `<仓库根>/main_table_experiments/baselines/mcmipl_official/MCMIPL`  
+- `LOG_DIR=` → `<仓库根>/main_table_experiments/logs`  
+
+然后在仓库内执行（参数：`DATASET`、`SEED`、`MAX_STEPS`、`SAMPLE_TIMES`、`EVAL_NUM`）：
 
 ```bash
-cd main_table_experiments/baselines/mcmipl_official/MCMIPL
-conda activate <你的环境名>
+cd /path/to/interrecbaseline-MCMIPL/main_table_experiments
 
-# BOOK —— seed 0/1/2 示例（max_steps / sample_times / eval_num 等与主表 LAST_FM/Yelp 对齐）
-python -u RL_model.py --data_name BOOK --embed transe --seed 0 --gpu 0 \
-  --max_steps 100 --sample_times 100 --attr_num 20 --choice_num 4 --max_turn 15 \
-  --eval_num 10 --save_num 100 ...
-# 对每个 seed 重复，并 tee 保存日志到自建路径，如 ~/logs/train_BOOK_s0.log
+# BOOK，三 seed（与 Last_FM 主表一致时常用 max_steps=100）
+bash run_mcmipl.sh BOOK 0 100 100 10
+bash run_mcmipl.sh BOOK 1 100 100 10
+bash run_mcmipl.sh BOOK 2 100 100 10
 
-# MOVIE 同理，--data_name MOVIE
+# MOVIE 同理
+bash run_mcmipl.sh MOVIE 0 100 100 10
+bash run_mcmipl.sh MOVIE 1 100 100 10
+bash run_mcmipl.sh MOVIE 2 100 100 10
 ```
 
-**实际参数**请打开本仓库 **`main_table_experiments/run_mcmipl.sh`**，将 `DATASET` 改为 `BOOK`、`MOVIE`，`MAX_STEPS` 若与 LastFM 一致为 100，Yelp 曾为 50——**以你希望与主表哪条基线对齐为准**，三数据集之间步数可能不同属官方设定；务必 **三 seed 均跑完** 再汇总。
+若某条主表基线曾用 **50** 步（如部分 YELP 配置），把第三、四个数字改为 `50 50` 即可与那条线对齐；BOOK/MOVIE 与谁对齐由你统一约定，并**三 seed 都跑完**再汇总。
 
 ---
 

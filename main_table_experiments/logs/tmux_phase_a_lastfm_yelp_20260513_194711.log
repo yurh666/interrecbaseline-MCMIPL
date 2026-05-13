@@ -1,0 +1,207 @@
+=== rebuild_lastfm_yelp (full) start ===
+== [1/6] MCMIPL lastfm_star / yelp_star -> InterRec CSV ==
+[convert] lastfm_star: 1801 users (merged train/valid/test dicts)
+[convert] 7432 item metadata records
+[convert] interactions.csv  rows=76693  -> data/raw_mcmipl_lastfm_star/interactions.csv
+[convert] items.csv  rows=7123  -> data/raw_mcmipl_lastfm_star/items.csv
+
+Next: point configs/default.yaml (or a dataset-specific yaml) at these paths
+and run:  python scripts/preprocess_dataset.py --config <your.yaml>
+[convert] yelp_star: 27675 users (merged train/valid/test dicts)
+[convert] 70311 item metadata records
+[convert] interactions.csv  rows=1368606  -> data/raw_mcmipl_yelp_star/interactions.csv
+[convert] items.csv  rows=66775  -> data/raw_mcmipl_yelp_star/items.csv
+
+Next: point configs/default.yaml (or a dataset-specific yaml) at these paths
+and run:  python scripts/preprocess_dataset.py --config <your.yaml>
+== [2/6] InterRec preprocess (observed 40% + future 7:1:2) ==
+[preprocess] Dataset: mcmipl_lastfm_star
+[preprocess] Raw interactions: data/raw_mcmipl_lastfm_star/interactions.csv
+[preprocess] Done.
+  interactions: data/processed_mcmipl_lastfm_star/interactions.csv
+  items: data/processed_mcmipl_lastfm_star/items.csv
+  user_splits: data/processed_mcmipl_lastfm_star/user_splits.json
+  sessions: data/processed_mcmipl_lastfm_star/sessions.json
+  n_interactions: 74243
+  n_items: 4673
+  n_users: 1801
+[preprocess] Dataset: mcmipl_yelp_star
+[preprocess] Raw interactions: data/raw_mcmipl_yelp_star/interactions.csv
+[preprocess] Done.
+  interactions: data/processed_mcmipl_yelp_star/interactions.csv
+  items: data/processed_mcmipl_yelp_star/items.csv
+  user_splits: data/processed_mcmipl_yelp_star/user_splits.json
+  sessions: data/processed_mcmipl_yelp_star/sessions.json
+  n_interactions: 1347411
+  n_items: 52922
+  n_users: 27673
+== [3/6] full sessions (no slice) ==
+== [4/6] backup current lastfm_star + yelp_star UI -> /home/yurh/interrecbaseline-MCMIPL/main_table_experiments/baselines/mcmipl_official/MCMIPL/data/_backup_official_split_20260513_194741 ==
+== [5/6] InterRec sessions -> MCMIPL review_dict + train/test.pkl ==
+[export] dataset=lastfm_star
+[export] sessions file: data/processed_mcmipl_lastfm_star/sessions.json
+[export] users with profile + train.pkl + test.pkl: 1801
+[export] skipped users: empty_profile=0 no_train_targets=0 no_test_targets=0 not_in_kg_entities=0
+[export] wrote /home/yurh/interrecbaseline-MCMIPL/main_table_experiments/baselines/mcmipl_official/MCMIPL/data/lastfm_star/UI_Interaction_data/review_dict_*.json and /home/yurh/interrecbaseline-MCMIPL/main_table_experiments/baselines/mcmipl_official/MCMIPL/data/lastfm_star/UI_data/*.pkl
+
+Next: cd MCMIPL && python graph_init.py --data_name LAST_FM_STAR, then TransE + RL.
+[export] dataset=yelp_star
+[export] sessions file: data/processed_mcmipl_yelp_star/sessions.json
+[export] users with profile + train.pkl + test.pkl: 27627
+[export] skipped users: empty_profile=0 no_train_targets=0 no_test_targets=0 not_in_kg_entities=46
+[export] wrote /home/yurh/interrecbaseline-MCMIPL/main_table_experiments/baselines/mcmipl_official/MCMIPL/data/yelp_star/UI_Interaction_data/review_dict_*.json and /home/yurh/interrecbaseline-MCMIPL/main_table_experiments/baselines/mcmipl_official/MCMIPL/data/yelp_star/UI_data/*.pkl
+
+Next: cd MCMIPL && python graph_init.py --data_name YELP_STAR, then TransE + RL.
+== [6/6] MCMIPL graph_init ==
+Using backend: pytorch
+Create LAST_FM_STAR graph from raw data...
+  0%|          | 0/1801 [00:00<?, ?it/s]100%|██████████| 1801/1801 [00:00<00:00, 310299.93it/s]
+Save LAST_FM_STAR graph successfully!
+Create LAST_FM_STAR dataset...
+Save LAST_FM_STAR dataset successfully!
+Using backend: pytorch
+Load YELP_STAR from file...
+./tmp/yelp_star
+Load user of size 27629
+user of max id is 27674
+Load item of size 70311
+item of max id is 70310
+Load feature of size 590
+feature of max id is 589
+Load large_feature of size 29
+large_feature of max id is 28
+Load interact of size 1368606
+Load friends of size 688209
+Load like of size 0
+Load belong_to of size 477012
+Load belong_to_large of size 350175
+Load link_to_feature of size 565
+Save YELP_STAR dataset successfully!
+Create YELP_STAR graph from data_name...
+load entities...
+load entity:user  : Total 27675 nodes.
+load entity:item  : Total 70311 nodes.
+load entity:feature  : Total 590 nodes.
+load entity:large_feature  : Total 29 nodes.
+ALL total 98605 nodes.
+===============END==============
+Load knowledge interact...
+Total 2737212 interact edges.
+Load knowledge friends...
+Total 1376418 friends edges.
+Load knowledge like...
+Total 0 like edges.
+Load knowledge belong_to...
+Total 954024 belong_to edges.
+Load knowledge belong_to_large...
+Total 700350 belong_to_large edges.
+Load knowledge link_to_feature...
+Total 1130 link_to_feature edges.
+===============END==============
+Remove duplicates...
+Save YELP_STAR graph successfully!
+
+=== Done. LAST_FM_STAR / YELP_STAR 已与 BOOK/MOVIE 使用同一 InterRec 时序切分协议。===
+=== 下一步：重训 TransE（OpenKE），再跑 RL_model.py；备份目录：/home/yurh/interrecbaseline-MCMIPL/main_table_experiments/baselines/mcmipl_official/MCMIPL/data/_backup_official_split_20260513_194741 ===
+=== run_pipeline_phase_cpu LAST_FM_STAR YELP_STAR ===
+=== Phase A (CPU) | datasets: LAST_FM_STAR YELP_STAR | Wed May 13 07:47:54 PM CST 2026 ===
+=== python: /home/yurh/.conda/envs/mcmipl-reproduce/bin/python ===
+
+=== [Phase A] prepare_data: LAST_FM_STAR ===
+Preparing official MCMIPL data for LAST_FM_STAR
+Repo dir: /home/yurh/interrecbaseline-MCMIPL/main_table_experiments/baselines/mcmipl_official/MCMIPL
+Found data directory: /home/yurh/interrecbaseline-MCMIPL/main_table_experiments/baselines/mcmipl_official/MCMIPL/data/lastfm_star
+Data files:
+Graph_generate_data/fea_large.pkl
+Graph_generate_data/item_fea.pkl
+Graph_generate_data/user_friends.pkl
+Graph_generate_data/user_like.pkl
+UI_Interaction_data/review_dict_test.json
+UI_Interaction_data/review_dict_train.json
+UI_Interaction_data/review_dict_valid.json
+UI_data/test.pkl
+UI_data/train.pkl
+=== [Phase A] graph_init: LAST_FM_STAR ===
+===== graph_init =====
+data_name=LAST_FM_STAR
+cwd=/home/yurh/interrecbaseline-MCMIPL/main_table_experiments/baselines/mcmipl_official/MCMIPL
+Wed May 13 07:47:54 PM CST 2026
+Using backend: pytorch
+Create LAST_FM_STAR graph from raw data...
+  0%|          | 0/1801 [00:00<?, ?it/s]100%|██████████| 1801/1801 [00:00<00:00, 300630.46it/s]
+Save LAST_FM_STAR graph successfully!
+Create LAST_FM_STAR dataset...
+Save LAST_FM_STAR dataset successfully!
+Wed May 13 07:47:56 PM CST 2026
+
+=== [Phase A] prepare_data: YELP_STAR ===
+Preparing official MCMIPL data for YELP_STAR
+Repo dir: /home/yurh/interrecbaseline-MCMIPL/main_table_experiments/baselines/mcmipl_official/MCMIPL
+Found data directory: /home/yurh/interrecbaseline-MCMIPL/main_table_experiments/baselines/mcmipl_official/MCMIPL/data/yelp_star
+Data files:
+Graph_generate_data/2-layer taxonomy.json
+Graph_generate_data/first-layer_merged_tag_map.json
+Graph_generate_data/item_dict-merged_tag.json
+Graph_generate_data/item_dict-original_tag.json
+Graph_generate_data/second-layer_oringinal_tag_map.json
+Graph_generate_data/user_dict.json
+Graph_generate_data/user_item.json
+UI_Interaction_data/review_dict_test.json
+UI_Interaction_data/review_dict_train.json
+UI_Interaction_data/review_dict_valid.json
+UI_data/test.pkl
+UI_data/train.pkl
+=== [Phase A] graph_init: YELP_STAR ===
+===== graph_init =====
+data_name=YELP_STAR
+cwd=/home/yurh/interrecbaseline-MCMIPL/main_table_experiments/baselines/mcmipl_official/MCMIPL
+Wed May 13 07:47:56 PM CST 2026
+Using backend: pytorch
+Load YELP_STAR from file...
+./tmp/yelp_star
+Load user of size 27629
+user of max id is 27674
+Load item of size 70311
+item of max id is 70310
+Load feature of size 590
+feature of max id is 589
+Load large_feature of size 29
+large_feature of max id is 28
+Load interact of size 1368606
+Load friends of size 688209
+Load like of size 0
+Load belong_to of size 477012
+Load belong_to_large of size 350175
+Load link_to_feature of size 565
+Save YELP_STAR dataset successfully!
+Create YELP_STAR graph from data_name...
+load entities...
+load entity:user  : Total 27675 nodes.
+load entity:item  : Total 70311 nodes.
+load entity:feature  : Total 590 nodes.
+load entity:large_feature  : Total 29 nodes.
+ALL total 98605 nodes.
+===============END==============
+Load knowledge interact...
+Total 2737212 interact edges.
+Load knowledge friends...
+Total 1376418 friends edges.
+Load knowledge like...
+Total 0 like edges.
+Load knowledge belong_to...
+Total 954024 belong_to edges.
+Load knowledge belong_to_large...
+Total 700350 belong_to_large edges.
+Load knowledge link_to_feature...
+Total 1130 link_to_feature edges.
+===============END==============
+Remove duplicates...
+Save YELP_STAR graph successfully!
+Wed May 13 07:48:04 PM CST 2026
+
+=== Phase A (CPU) 完成 | Wed May 13 07:48:04 PM CST 2026 ===
+下一台（GPU 机）请：
+  1) 同步本仓库与 MCMIPL/data/、MCMIPL/tmp/（至少含各数据集的 transe.pkl）
+  2) 若尚无 transe.pkl：按官方 MCMIPL README 用 OpenKE 训练 TransE 并放到 MCMIPL/tmp/<dataset>/embeds/
+  3) bash /home/yurh/interrecbaseline-MCMIPL/main_table_experiments/run_pipeline_phase_gpu.sh <数据集...>
+EXIT=0

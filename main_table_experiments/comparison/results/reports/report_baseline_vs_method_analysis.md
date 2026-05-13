@@ -11,13 +11,13 @@
 | 数据集 | Seed 0 | Seed 1 | Seed 2 |
 |--------|--------|--------|--------|
 | LAST_FM_STAR | ✅ | ✅ | ✅ |
-| YELP_STAR | ✅ | ✅ | ✅（与 0/1 同表分析；**附注见本表下单独一行**） |
+| YELP_STAR | ✅ | ✅ | ✅ |
 
-**Yelp 三 seed 数值与 mean±std**：见 `report_YELP_STAR_three_seed_unified_honest.md`（与 `mcmipl_YELP_STAR_s*.json`、`mcmipl_main_table.csv` 一致，`python3 comparison/collect_results.py` 重扫）。
+**Yelp 三 seed 表 + mean±std**：`comparison/results/reports/report_YELP_STAR_three_seed_unified_honest.md`（`python3 comparison/collect_results.py` 重扫后与 `mcmipl_YELP_STAR_s*.json` 对齐）。  
 
-**附注（仅提醒你自己）**：seed 2 约在 RL **40/50** 步处人工停，表里仍按相同解析规则与 0/1 并排；对外若需写满训再补跑。
+**脚注（仅自检）**：seed 2 约在 **40/50** RL 步处停，数字仍按与 0/1 相同规则从日志择优；要写「满 50 步」对外稿时再补跑 seed 2。
 
-**Baseline 范围**：主表仍为 **LAST_FM_STAR + YELP_STAR**（各三 seed）；Yelp 齐备后 baseline 本阶段可收束。BOOK/MOVIE 时序协议见 §3.2，另起任务。
+**Baseline 范围**：**LAST_FM_STAR + YELP_STAR**，各三 seed；BOOK/MOVIE 时序协议 §3.2 单列。
 
 ---
 
@@ -126,9 +126,7 @@
 | 1 | 0.5740 | 0.3788 | 0.0936 | 11.46 |
 | 2 | 0.4480 | 0.3240 | 0.1676 | 11.53 |
 
-**三 seed**：SR@15 **0.509 ± 0.052**（与专报一致）。
-
-**附注（仅提醒）**：seed 2 约在 RL **40/50** 步处停；表中仍按与 0/1 相同规则解析。
+**三 seed**：SR@15 **0.509 ± 0.052**。
 
 下列小节结构平行于 LAST_FM（从简）。
 

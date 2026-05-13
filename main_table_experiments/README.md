@@ -79,6 +79,7 @@ bash scripts/run_graph_init.sh LAST_FM_STAR
 |------|------|------|
 | A（CPU） | `run_pipeline_phase_cpu.sh` | 可选 `RUN_REBUILD_BOOK_MOVIE=1`；对每个数据集 `prepare_data` + `graph_init` |
 | B（GPU RL） | `run_pipeline_phase_gpu.sh` | 需已有各集 `tmp/<slug>/embeds/transe.pkl`；可设 `REQUIRE_TRANSE=1` |
+| B 队列（BOOK 后 1/2/4） | `scripts/run_phaseB_after_book_then_lastfm_yelp_movie.sh` | 等 `logs/train_BOOK_s{0,1,2}.log` 均出现 `DONE` 后，串行 Phase B：`LAST_FM_STAR`、`YELP_STAR`、`MOVIE`（跳过 BOOK）；`SKIP_WAIT=1` 可不调试用 |
 | B（仅 CPU RL） | `run_pipeline_phase_rl_cpu.sh` | 设置 `MCMIPL_FORCE_CPU=1` 后调用 Phase B 调度 |
 | 单机训练入口 | `run_mcmipl.sh` | `MCMIPL_DIR`/`LOG_DIR`/`MCMIPL_*_PYTHON` 可用环境变量覆盖 |
 

@@ -1,0 +1,180 @@
+# Phase A artifact manifest
+# generated: 2026-05-13T18:48:25+08:00
+# host: ubuntu-gpu
+
+## git HEAD
+e0bd5573174180c659d490de14f8a8f974be5992
+
+## tmp/* sizes (graph + TransE)
+/home/yurh/interrecbaseline-MCMIPL/main_table_experiments/baselines/mcmipl_official/MCMIPL/tmp:
+total 24
+drwxrwxr-x 6 yurh yurh 4096 May  6 16:58 .
+drwxrwxr-x 8 yurh yurh 4096 May 13 18:13 ..
+drwxrwxr-x 4 yurh yurh 4096 May 13 18:13 book
+drwxrwxr-x 5 yurh yurh 4096 May  6 18:45 last_fm_star
+drwxrwxr-x 3 yurh yurh 4096 May 13 18:13 movie
+drwxrwxr-x 5 yurh yurh 4096 May 10 12:39 yelp_star
+
+/home/yurh/interrecbaseline-MCMIPL/main_table_experiments/baselines/mcmipl_official/MCMIPL/tmp/book:
+total 1012
+drwxrwxr-x 4 yurh yurh   4096 May 13 18:13 .
+drwxrwxr-x 6 yurh yurh   4096 May  6 16:58 ..
+-rw-rw-r-- 1 yurh yurh  56237 May 13 18:13 dataset.pkl
+drwxrwxr-x 3 yurh yurh   4096 May 13 18:13 embeds
+-rw-rw-r-- 1 yurh yurh 961920 May 13 18:13 kg.pkl
+drwxrwxr-x 2 yurh yurh   4096 May 13 18:13 RL-agent
+
+/home/yurh/interrecbaseline-MCMIPL/main_table_experiments/baselines/mcmipl_official/MCMIPL/tmp/book/embeds:
+total 7352
+drwxrwxr-x 3 yurh yurh    4096 May 13 18:13 .
+drwxrwxr-x 4 yurh yurh    4096 May 13 18:13 ..
+drwxrwxr-x 2 yurh yurh    4096 May  6 16:58 .ipynb_checkpoints
+-rw-rw-r-- 1 yurh yurh 7514346 May 13 18:13 transe.pkl
+
+/home/yurh/interrecbaseline-MCMIPL/main_table_experiments/baselines/mcmipl_official/MCMIPL/tmp/book/embeds/.ipynb_checkpoints:
+total 12
+drwxrwxr-x 2 yurh yurh 4096 May  6 16:58 .
+drwxrwxr-x 3 yurh yurh 4096 May 13 18:13 ..
+-rw-rw-r-- 1 yurh yurh   72 May  6 16:58 未命名-checkpoint.ipynb
+
+/home/yurh/interrecbaseline-MCMIPL/main_table_experiments/baselines/mcmipl_official/MCMIPL/tmp/book/RL-agent:
+total 116
+drwxrwxr-x 2 yurh yurh   4096 May 13 18:13 .
+drwxrwxr-x 4 yurh yurh   4096 May 13 18:13 ..
+-rw-rw-r-- 1 yurh yurh 110135 May 13 18:13 train-data-BOOK-RL-cand_num-10-cand_item_num-10-embed-transe-seq-transformer-gcn-True-epoch-1.pkl
+
+/home/yurh/interrecbaseline-MCMIPL/main_table_experiments/baselines/mcmipl_official/MCMIPL/tmp/last_fm_star:
+total 1864
+drwxrwxr-x 5 yurh yurh    4096 May  6 18:45 .
+drwxrwxr-x 6 yurh yurh    4096 May  6 16:58 ..
+-rw-rw-r-- 1 yurh yurh   52532 May 13 18:13 dataset.pkl
+drwxrwxr-x 2 yurh yurh    4096 May  6 16:58 embeds
+-rw-rw-r-- 1 yurh yurh 1833404 May 13 18:13 kg.pkl
+drwxrwxr-x 2 yurh yurh    4096 May  8 09:06 RL-agent
+drwxrwxr-x 2 yurh yurh    4096 May  8 09:06 RL-log-merge
+
+/home/yurh/interrecbaseline-MCMIPL/main_table_experiments/baselines/mcmipl_official/MCMIPL/tmp/last_fm_star/embeds:
+total 4428
+drwxrwxr-x 2 yurh yurh    4096 May  6 16:58 .
+drwxrwxr-x 5 yurh yurh    4096 May  6 18:45 ..
+-rw-rw-r-- 1 yurh yurh 4524012 May  6 16:58 transe.pkl
+
+/home/yurh/interrecbaseline-MCMIPL/main_table_experiments/baselines/mcmipl_official/MCMIPL/tmp/last_fm_star/RL-agent:
+total 224
+drwxrwxr-x 2 yurh yurh   4096 May  8 09:06 .
+drwxrwxr-x 5 yurh yurh   4096 May  6 18:45 ..
+-rw-rw-r-- 1 yurh yurh 110199 May  8 12:09 train-data-LAST_FM_STAR-RL-cand_num-10-cand_item_num-10-embed-transe-seq-transformer-gcn-True-epoch-100.pkl
+-rw-rw-r-- 1 yurh yurh 110143 May  6 18:45 train-data-LAST_FM_STAR-RL-cand_num-10-cand_item_num-10-embed-transe-seq-transformer-gcn-True-epoch-5.pkl
+
+/home/yurh/interrecbaseline-MCMIPL/main_table_experiments/baselines/mcmipl_official/MCMIPL/tmp/last_fm_star/RL-log-merge:
+total 88
+drwxrwxr-x 2 yurh yurh  4096 May  8 09:06 .
+drwxrwxr-x 5 yurh yurh  4096 May  6 18:45 ..
+-rw-rw-r-- 1 yurh yurh  1126 May  6 20:18 Evaluate-epoch-0-train-data-LAST_FM_STAR-RL-cand_num-10-cand_item_num-10-embed-transe-seq-transformer-gcn-True.txt
+-rw-rw-r-- 1 yurh yurh  1095 May  8 12:09 Evaluate-epoch-100-train-data-LAST_FM_STAR-RL-cand_num-10-cand_item_num-10-embed-transe-seq-transformer-gcn-True.txt
+-rw-rw-r-- 1 yurh yurh  1111 May  7 00:37 Evaluate-epoch-10-train-data-LAST_FM_STAR-RL-cand_num-10-cand_item_num-10-embed-transe-seq-transformer-gcn-True.txt
+-rw-rw-r-- 1 yurh yurh   716 May  6 18:14 Evaluate-epoch-1-train-data-LAST_FM_STAR-RL-cand_num-10-cand_item_num-10-embed-transe-seq-transformer-gcn-True.txt
+-rw-rw-r-- 1 yurh yurh  1127 May  7 04:40 Evaluate-epoch-20-train-data-LAST_FM_STAR-RL-cand_num-10-cand_item_num-10-embed-transe-seq-transformer-gcn-True.txt
+-rw-rw-r-- 1 yurh yurh   360 May  6 18:21 Evaluate-epoch-2-train-data-LAST_FM_STAR-RL-cand_num-10-cand_item_num-10-embed-transe-seq-transformer-gcn-True.txt
+-rw-rw-r-- 1 yurh yurh  1110 May  7 08:45 Evaluate-epoch-30-train-data-LAST_FM_STAR-RL-cand_num-10-cand_item_num-10-embed-transe-seq-transformer-gcn-True.txt
+-rw-rw-r-- 1 yurh yurh   372 May  6 18:29 Evaluate-epoch-3-train-data-LAST_FM_STAR-RL-cand_num-10-cand_item_num-10-embed-transe-seq-transformer-gcn-True.txt
+-rw-rw-r-- 1 yurh yurh  1165 May  7 12:41 Evaluate-epoch-40-train-data-LAST_FM_STAR-RL-cand_num-10-cand_item_num-10-embed-transe-seq-transformer-gcn-True.txt
+-rw-rw-r-- 1 yurh yurh   372 May  6 18:37 Evaluate-epoch-4-train-data-LAST_FM_STAR-RL-cand_num-10-cand_item_num-10-embed-transe-seq-transformer-gcn-True.txt
+-rw-rw-r-- 1 yurh yurh  1145 May  7 16:38 Evaluate-epoch-50-train-data-LAST_FM_STAR-RL-cand_num-10-cand_item_num-10-embed-transe-seq-transformer-gcn-True.txt
+-rw-rw-r-- 1 yurh yurh   384 May  6 18:45 Evaluate-epoch-5-train-data-LAST_FM_STAR-RL-cand_num-10-cand_item_num-10-embed-transe-seq-transformer-gcn-True.txt
+-rw-rw-r-- 1 yurh yurh  1129 May  7 20:36 Evaluate-epoch-60-train-data-LAST_FM_STAR-RL-cand_num-10-cand_item_num-10-embed-transe-seq-transformer-gcn-True.txt
+-rw-rw-r-- 1 yurh yurh  1137 May  8 00:46 Evaluate-epoch-70-train-data-LAST_FM_STAR-RL-cand_num-10-cand_item_num-10-embed-transe-seq-transformer-gcn-True.txt
+-rw-rw-r-- 1 yurh yurh  1100 May  8 04:59 Evaluate-epoch-80-train-data-LAST_FM_STAR-RL-cand_num-10-cand_item_num-10-embed-transe-seq-transformer-gcn-True.txt
+-rw-rw-r-- 1 yurh yurh  1113 May  8 09:00 Evaluate-epoch-90-train-data-LAST_FM_STAR-RL-cand_num-10-cand_item_num-10-embed-transe-seq-transformer-gcn-True.txt
+-rw-rw-r-- 1 yurh yurh  2541 May  8 12:09 Evaluate-train-data-LAST_FM_STAR-RL-cand_num-10-cand_item_num-10-embed-transe-seq-transformer-gcn-True.txt
+-rw-rw-r-- 1 yurh yurh 10168 May  8 12:09 train-data-LAST_FM_STAR-RL-cand_num-10-cand_item_num-10-embed-transe-seq-transformer-gcn-True.txt
+
+/home/yurh/interrecbaseline-MCMIPL/main_table_experiments/baselines/mcmipl_official/MCMIPL/tmp/movie:
+total 2236
+drwxrwxr-x 3 yurh yurh    4096 May 13 18:13 .
+drwxrwxr-x 6 yurh yurh    4096 May  6 16:58 ..
+-rw-rw-r-- 1 yurh yurh   54063 May 13 18:13 dataset.pkl
+drwxrwxr-x 3 yurh yurh    4096 May 13 18:13 embeds
+-rw-rw-r-- 1 yurh yurh 2219005 May 13 18:13 kg.pkl
+
+/home/yurh/interrecbaseline-MCMIPL/main_table_experiments/baselines/mcmipl_official/MCMIPL/tmp/movie/embeds:
+total 7480
+drwxrwxr-x 3 yurh yurh    4096 May 13 18:13 .
+drwxrwxr-x 3 yurh yurh    4096 May 13 18:13 ..
+drwxrwxr-x 2 yurh yurh    4096 May  6 16:58 .ipynb_checkpoints
+-rw-rw-r-- 1 yurh yurh 7646698 May 13 18:13 transe.pkl
+
+/home/yurh/interrecbaseline-MCMIPL/main_table_experiments/baselines/mcmipl_official/MCMIPL/tmp/movie/embeds/.ipynb_checkpoints:
+total 12
+drwxrwxr-x 2 yurh yurh 4096 May  6 16:58 .
+drwxrwxr-x 3 yurh yurh 4096 May 13 18:13 ..
+-rw-rw-r-- 1 yurh yurh 1874 May  6 16:58 未命名-checkpoint.ipynb
+
+/home/yurh/interrecbaseline-MCMIPL/main_table_experiments/baselines/mcmipl_official/MCMIPL/tmp/yelp_star:
+total 28272
+drwxrwxr-x 5 yurh yurh     4096 May 10 12:39 .
+drwxrwxr-x 6 yurh yurh     4096 May  6 16:58 ..
+-rw-rw-r-- 1 yurh yurh 10164908 May 13 18:13 dataset.pkl
+drwxrwxr-x 2 yurh yurh     4096 May  6 16:58 embeds
+-rw-rw-r-- 1 yurh yurh 18762291 May 13 18:13 kg.pkl
+drwxrwxr-x 2 yurh yurh     4096 May 10 12:39 RL-agent
+drwxrwxr-x 2 yurh yurh     4096 May 10 12:39 RL-log-merge
+
+/home/yurh/interrecbaseline-MCMIPL/main_table_experiments/baselines/mcmipl_official/MCMIPL/tmp/yelp_star/embeds:
+total 24656
+drwxrwxr-x 2 yurh yurh     4096 May  6 16:58 .
+drwxrwxr-x 5 yurh yurh     4096 May 10 12:39 ..
+-rw-rw-r-- 1 yurh yurh 25235694 May  6 16:58 transe.pkl
+
+/home/yurh/interrecbaseline-MCMIPL/main_table_experiments/baselines/mcmipl_official/MCMIPL/tmp/yelp_star/RL-agent:
+total 116
+drwxrwxr-x 2 yurh yurh   4096 May 10 12:39 .
+drwxrwxr-x 5 yurh yurh   4096 May 10 12:39 ..
+-rw-rw-r-- 1 yurh yurh 110207 May 12 02:19 train-data-YELP_STAR-RL-cand_num-10-cand_item_num-10-embed-transe-seq-transformer-gcn-True-epoch-50.pkl
+
+/home/yurh/interrecbaseline-MCMIPL/main_table_experiments/baselines/mcmipl_official/MCMIPL/tmp/yelp_star/RL-log-merge:
+total 44
+drwxrwxr-x 2 yurh yurh 4096 May 10 12:39 .
+drwxrwxr-x 5 yurh yurh 4096 May 10 12:39 ..
+-rw-rw-r-- 1 yurh yurh 1111 May 12 04:55 Evaluate-epoch-0-train-data-YELP_STAR-RL-cand_num-10-cand_item_num-10-embed-transe-seq-transformer-gcn-True.txt
+-rw-rw-r-- 1 yurh yurh 1133 May 12 12:03 Evaluate-epoch-10-train-data-YELP_STAR-RL-cand_num-10-cand_item_num-10-embed-transe-seq-transformer-gcn-True.txt
+-rw-rw-r-- 1 yurh yurh 1114 May 12 19:42 Evaluate-epoch-20-train-data-YELP_STAR-RL-cand_num-10-cand_item_num-10-embed-transe-seq-transformer-gcn-True.txt
+-rw-rw-r-- 1 yurh yurh 1157 May 13 02:51 Evaluate-epoch-30-train-data-YELP_STAR-RL-cand_num-10-cand_item_num-10-embed-transe-seq-transformer-gcn-True.txt
+-rw-rw-r-- 1 yurh yurh 1150 May 13 10:06 Evaluate-epoch-40-train-data-YELP_STAR-RL-cand_num-10-cand_item_num-10-embed-transe-seq-transformer-gcn-True.txt
+-rw-rw-r-- 1 yurh yurh  759 May 12 02:19 Evaluate-epoch-50-train-data-YELP_STAR-RL-cand_num-10-cand_item_num-10-embed-transe-seq-transformer-gcn-True.txt
+-rw-rw-r-- 1 yurh yurh 1171 May 13 10:06 Evaluate-train-data-YELP_STAR-RL-cand_num-10-cand_item_num-10-embed-transe-seq-transformer-gcn-True.txt
+-rw-rw-r-- 1 yurh yurh 4509 May 13 10:06 train-data-YELP_STAR-RL-cand_num-10-cand_item_num-10-embed-transe-seq-transformer-gcn-True.txt
+
+## sha256: tmp/**/transe.pkl dataset.pkl kg.pkl
+1465a261778247d5c471f87bc2a42a67035f892dbcac06d48f76cd7272338adb  /home/yurh/interrecbaseline-MCMIPL/main_table_experiments/baselines/mcmipl_official/MCMIPL/tmp/book/dataset.pkl
+49cba6a945a26ba5b02906f5c0131e8786135d28be30b38436dc12e7a0bd6a0f  /home/yurh/interrecbaseline-MCMIPL/main_table_experiments/baselines/mcmipl_official/MCMIPL/tmp/book/embeds/transe.pkl
+b58422c20539760edc2aa53f4a3b8cd71ed54c91410c39c62101143e84996493  /home/yurh/interrecbaseline-MCMIPL/main_table_experiments/baselines/mcmipl_official/MCMIPL/tmp/book/kg.pkl
+b693f16f4003581a88ecd8bf2414161c6e9a440e782fb420be7ba56f5b056334  /home/yurh/interrecbaseline-MCMIPL/main_table_experiments/baselines/mcmipl_official/MCMIPL/tmp/last_fm_star/dataset.pkl
+086f75459809d5a2a1a5d8a6ab69602e6a0a787a65f83c5fc30efce8581b3658  /home/yurh/interrecbaseline-MCMIPL/main_table_experiments/baselines/mcmipl_official/MCMIPL/tmp/last_fm_star/embeds/transe.pkl
+13635b657f2c854db702e2cbc6ae07f27a7ad2f06248f8ee23bd6819cad272cc  /home/yurh/interrecbaseline-MCMIPL/main_table_experiments/baselines/mcmipl_official/MCMIPL/tmp/last_fm_star/kg.pkl
+b846e1112cc7f2a6dd6d315f26db067b8219adb8b0eb14c24cb4929a284828cf  /home/yurh/interrecbaseline-MCMIPL/main_table_experiments/baselines/mcmipl_official/MCMIPL/tmp/movie/dataset.pkl
+7bf0cdcb4ec678ce531c5d5f30dcf43de40c1db5da4859db076f5ffc9cb5cedd  /home/yurh/interrecbaseline-MCMIPL/main_table_experiments/baselines/mcmipl_official/MCMIPL/tmp/movie/embeds/transe.pkl
+b196882e86d642a08792f689896eb65a9d8c7a7de862e2928d2be422d74c58d1  /home/yurh/interrecbaseline-MCMIPL/main_table_experiments/baselines/mcmipl_official/MCMIPL/tmp/movie/kg.pkl
+de3572e8bac9ba54c3f7464658000c8512f10379d1d91866d262d03f1b52b1bb  /home/yurh/interrecbaseline-MCMIPL/main_table_experiments/baselines/mcmipl_official/MCMIPL/tmp/yelp_star/dataset.pkl
+ac224cf5bfec6624b18307150495831811bcc5c38d0cc4e71dc7402cdccfa81c  /home/yurh/interrecbaseline-MCMIPL/main_table_experiments/baselines/mcmipl_official/MCMIPL/tmp/yelp_star/embeds/transe.pkl
+debc379daca9f510914dd5263f2b8baa738b62567fb22de945949b03d4b4237b  /home/yurh/interrecbaseline-MCMIPL/main_table_experiments/baselines/mcmipl_official/MCMIPL/tmp/yelp_star/kg.pkl
+
+## MCMIPL data book/movie UI_data (if present)
+total 20
+drwxrwxr-x 2 yurh yurh 4096 May 13 18:13 .
+drwxrwxr-x 5 yurh yurh 4096 May  6 16:58 ..
+-rw-rw-r-- 1 yurh yurh 2457 May 13 18:13 test.pkl
+-rw-rw-r-- 1 yurh yurh 7993 May 13 18:13 train.pkl
+/home/yurh/interrecbaseline-MCMIPL/main_table_experiments/baselines/mcmipl_official/MCMIPL/data/book/UI_data/test.pkl
+038a447d92a33bf2692065f373112a62eb8c242942fb9e26ff9ec25dc1a3260f  /home/yurh/interrecbaseline-MCMIPL/main_table_experiments/baselines/mcmipl_official/MCMIPL/data/book/UI_data/test.pkl
+/home/yurh/interrecbaseline-MCMIPL/main_table_experiments/baselines/mcmipl_official/MCMIPL/data/book/UI_data/train.pkl
+5a716392924e5cc4929e7363fc5ab16b2ef8dafc2b38c43037c7ba524e6a0558  /home/yurh/interrecbaseline-MCMIPL/main_table_experiments/baselines/mcmipl_official/MCMIPL/data/book/UI_data/train.pkl
+total 20
+drwxrwxr-x 2 yurh yurh 4096 May 13 18:13 .
+drwxrwxr-x 5 yurh yurh 4096 May  6 16:58 ..
+-rw-rw-r-- 1 yurh yurh 2503 May 13 18:13 test.pkl
+-rw-rw-r-- 1 yurh yurh 5058 May 13 18:13 train.pkl
+/home/yurh/interrecbaseline-MCMIPL/main_table_experiments/baselines/mcmipl_official/MCMIPL/data/movie/UI_data/test.pkl
+fa296be99f9d070a64dad422ce75e5857092974a5539ea0176273eca43cd32e4  /home/yurh/interrecbaseline-MCMIPL/main_table_experiments/baselines/mcmipl_official/MCMIPL/data/movie/UI_data/test.pkl
+/home/yurh/interrecbaseline-MCMIPL/main_table_experiments/baselines/mcmipl_official/MCMIPL/data/movie/UI_data/train.pkl
+bc151a4fced90fcb6fe31a91a81b1ef18a61568a74159259865550e62a22d6c2  /home/yurh/interrecbaseline-MCMIPL/main_table_experiments/baselines/mcmipl_official/MCMIPL/data/movie/UI_data/train.pkl

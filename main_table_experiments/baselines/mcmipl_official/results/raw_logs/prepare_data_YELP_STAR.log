@@ -1,0 +1,16 @@
+Preparing official MCMIPL data for YELP_STAR
+Repo dir: /home/yurh/interrecbaseline-MCMIPL/main_table_experiments/baselines/mcmipl_official/MCMIPL
+Found data directory: /home/yurh/interrecbaseline-MCMIPL/main_table_experiments/baselines/mcmipl_official/MCMIPL/data/yelp_star
+Data files:
+Graph_generate_data/2-layer taxonomy.json
+Graph_generate_data/first-layer_merged_tag_map.json
+Graph_generate_data/item_dict-merged_tag.json
+Graph_generate_data/item_dict-original_tag.json
+Graph_generate_data/second-layer_oringinal_tag_map.json
+Graph_generate_data/user_dict.json
+Graph_generate_data/user_item.json
+UI_Interaction_data/review_dict_test.json
+UI_Interaction_data/review_dict_train.json
+UI_Interaction_data/review_dict_valid.json
+UI_data/test.pkl
+UI_data/train.pkl

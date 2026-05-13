@@ -1,0 +1,11 @@
+Preparing official MCMIPL data for BOOK
+Repo dir: /home/yurh/interrecbaseline-MCMIPL/main_table_experiments/baselines/mcmipl_official/MCMIPL
+Found data directory: /home/yurh/interrecbaseline-MCMIPL/main_table_experiments/baselines/mcmipl_official/MCMIPL/data/book
+Data files:
+UI_Interaction_data/review_dict_test.json
+UI_Interaction_data/review_dict_train.json
+UI_Interaction_data/review_dict_valid.json
+UI_data/test.pkl
+UI_data/train.pkl
+fea_item/item_feature.pkl
+fea_item/small_to_large.pkl

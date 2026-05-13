@@ -1,6 +1,6 @@
 # interrecbaseline-MCMIPL
 
-将 [MCMIPL](https://github.com/ZYM6-6/MCMIPL) 官方 baseline 与本仓库内 `interrec/`（时序预处理）pipeline 对齐后的复现资料：包含 **BOOK / MOVIE** 的 `convert → preprocess → export → graph_init` 脚本，以及与本机实验目录同步的 **`main_table_experiments`** 与 **`interrec`** 源码（含 MCMIPL 官方 `data/` 布局）。
+将 [MCMIPL](https://github.com/ZYM6-6/MCMIPL) 官方 baseline 与本仓库内 `interrec/`（时序预处理）pipeline 对齐后的复现资料：包含 **BOOK / MOVIE / LAST_FM_STAR / YELP_STAR** 的 `convert → preprocess → export → graph_init` 脚本，以及与本机实验目录同步的 **`main_table_experiments`** 与 **`interrec`** 源码（含 MCMIPL 官方 `data/` 布局）。
 
 ## 仓库布局
 
@@ -11,7 +11,8 @@ interrecbaseline-MCMIPL/
     baselines/mcmipl_official/
       MCMIPL/                        # 官方代码 + data/book、data/movie 等
       scripts/
-        rebuild_book_movie_interrec_temporal.sh   # BOOK+MOVIE 一键对齐
+        rebuild_book_movie_interrec_temporal.sh      # BOOK+MOVIE 一键对齐
+        rebuild_lastfm_yelp_interrec_temporal.sh       # LAST_FM_STAR+YELP_STAR 一键对齐
     comparison/                      # 主表收集脚本与报告（可选）
   docs/
     VIBE_CODING_BOOK_MOVIE.md        # 给 AI /「vibe coding」用的逐步 prompt
@@ -52,9 +53,20 @@ QUICK=0 bash main_table_experiments/baselines/mcmipl_official/scripts/rebuild_bo
 
 **Movie 数据集**在 `interrec/configs/preprocess_mcmipl_movie.yaml` 中调整了 `min_user_interactions` / `min_observed_interactions` 等阈值，以适配序列极短的分布（详见该文件内注释）。
 
+## LAST_FM_STAR / YELP_STAR：与 InterRec 时序切分对齐
+
+配置分别为 `preprocess_mcmipl_lastfm_star.yaml`、`preprocess_mcmipl_yelp_star.yaml`（与 BOOK/MOVIE 相同的 observed / future 比例）。在仓库根目录执行：
+
+```bash
+QUICK=1 QUICK_N=80 bash main_table_experiments/baselines/mcmipl_official/scripts/rebuild_lastfm_yelp_interrec_temporal.sh
+QUICK=0 bash main_table_experiments/baselines/mcmipl_official/scripts/rebuild_lastfm_yelp_interrec_temporal.sh
+```
+
+导出时会按 **KG 已有用户**过滤：`lastfm_star` 取 `user_friends.pkl` 与 `user_like.pkl` 的键交集，`yelp_star` 取 `user_dict.json` 的键，避免 `graph_init` 构图时 KeyError。脚本末尾会对 `LAST_FM_STAR` 与 `YELP_STAR` 各跑一次 `graph_init.py`。
+
 ## 后续：TransE 与 RL
 
-与官方 MCMIPL 一致：完成 `graph_init` 后，按官方文档训练 TransE（OpenKE）与 `RL_model.py`。本仓库不强制绑定 GPU 与随机种子，与主表实验配置请以本地 `comparison/` 与脚本为准。
+与官方 MCMIPL 一致：完成 `graph_init` 后，按官方文档训练 TransE（OpenKE）与 `RL_model.py`。**交互切分或用户集合若相对旧实验有变，旧的 `tmp/.../embeds/transe.pkl` 会与当前图不一致，应重训 TransE。** 本仓库不强制绑定 GPU 与随机种子，与主表实验配置请以本地 `comparison/` 与脚本为准。
 
 ## 上游
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""Step 5: Temporal-split artifacts for MCMIPL BOOK / MOVIE (InterRec-aligned).
+"""Step 5: Temporal-split artifacts for MCMIPL BOOK / MOVIE / LAST_FM_STAR / YELP_STAR (InterRec-aligned).
 
-Produces MCMIPL-readable JSON + pickles so BOOK and MOVIE reuse the **same**
+Produces MCMIPL-readable JSON + pickles so these datasets reuse the **same**
 chronological protocol as InterRec:
 
 - Profile (conversation-visible history): ``observed_history + future_train``
@@ -15,13 +15,18 @@ This replaces only ``UI_Interaction_data/review_dict_*.json`` and
 **Item side metadata** (``fea_item/*.pkl``) is untouched; rerun MCMIPL
 ``graph_init.py`` afterward so KG users match the new JSON, then retrain/embed.
 
-Supported datasets (**only these two**, per workflow request):
+Supported datasets:
 
 - ``book``: ``BookGraph`` reads users from ``review_dict_valid.json``; RL train
   uses ``valid``, RL test uses ``test``.
 - ``movie``: ``MovieGraph`` reads users from ``review_dict_test.json``; RL still
   uses ``valid`` (train) / ``test`` (eval) — export writes **consistent**
   profiles to ``valid``, ``test``, and ``train`` JSON.
+- ``lastfm_star``: ``LastFmGraph`` reads ``review_dict_train.json``; users must
+  appear in both ``Graph_generate_data/user_friends.pkl`` and ``user_like.pkl``
+  (export keeps only the intersection).
+- ``yelp_star``: KG users come from ``Graph_generate_data/user_dict.json``;
+  export keeps only those user ids.
 
 Usage::
 
@@ -72,11 +77,41 @@ def test_items(sess: dict[str, Any]) -> list[int] | None:
     return [int(x) for x in xs]
 
 
+def load_allowed_user_ids(dataset: str, dataset_data_dir: Path) -> set[int] | None:
+    """Users that must appear in exported UI data for graph_init (KG alignment)."""
+    if dataset in ("book", "movie"):
+        return None
+    gd = dataset_data_dir / "Graph_generate_data"
+    if dataset == "lastfm_star":
+        with (gd / "user_friends.pkl").open("rb") as f:
+            uf = pickle.load(f)
+        with (gd / "user_like.pkl").open("rb") as f:
+            ul = pickle.load(f)
+        kf = {int(k) for k in uf.keys()}
+        kl = {int(k) for k in ul.keys()}
+        return kf & kl
+    if dataset == "yelp_star":
+        with (gd / "user_dict.json").open(encoding="utf-8") as f:
+            d = json.load(f)
+        return {int(k) for k in d.keys()}
+    raise ValueError(f"unsupported dataset for KG filter: {dataset}")
+
+
+_GRAPH_INIT_HINT = {
+    "book": "BOOK",
+    "movie": "MOVIE",
+    "lastfm_star": "LAST_FM_STAR",
+    "yelp_star": "YELP_STAR",
+}
+
+
 def main() -> None:
-    p = argparse.ArgumentParser(description="InterRec sessions → MCMIPL BOOK/MOVIE split files")
+    p = argparse.ArgumentParser(
+        description="InterRec sessions → MCMIPL UI split files (BOOK/MOVIE/LAST_FM_STAR/YELP_STAR)"
+    )
     p.add_argument(
         "--dataset",
-        choices=("book", "movie"),
+        choices=("book", "movie", "lastfm_star", "yelp_star"),
         required=True,
     )
     p.add_argument(
@@ -97,6 +132,8 @@ def main() -> None:
     if not isinstance(raw, list):
         raise SystemExit("sessions.json must be a JSON list")
 
+    allowed = load_allowed_user_ids(args.dataset, args.dataset_data_dir)
+
     ui_dir = args.dataset_data_dir / "UI_Interaction_data"
     pkl_dir = args.dataset_data_dir / "UI_data"
     ui_dir.mkdir(parents=True, exist_ok=True)
@@ -109,9 +146,13 @@ def main() -> None:
     skipped_no_profile = 0
     skipped_no_train = 0
     skipped_no_test = 0
+    skipped_not_in_graph = 0
     for sess in raw:
         uid = str(sess.get("user_id", "")).strip()
         if not uid:
+            continue
+        if allowed is not None and int(uid) not in allowed:
+            skipped_not_in_graph += 1
             continue
 
         profile = merge_profile(sess)
@@ -154,11 +195,13 @@ def main() -> None:
         "[export] skipped users: "
         f"empty_profile={skipped_no_profile} "
         f"no_train_targets={skipped_no_train} "
-        f"no_test_targets={skipped_no_test}"
+        f"no_test_targets={skipped_no_test} "
+        f"not_in_kg_entities={skipped_not_in_graph}"
     )
     print(f"[export] wrote {ui_dir / 'review_dict_*.json'} and {pkl_dir / '*.pkl'}")
     print()
-    print("Next: cd MCMIPL && rerun graph construction for BOOK/MOVIE, then TransE + RL.")
+    dn = _GRAPH_INIT_HINT[args.dataset]
+    print(f"Next: cd MCMIPL && python graph_init.py --data_name {dn}, then TransE + RL.")
     if args.dataset == "movie":
         print("(MovieGraph reads users from review_dict_test.json — file updated accordingly.)")
 

@@ -1,0 +1,88 @@
+# InterRec 时序切分：输入来自 MCMIPL yelp_star（convert_mcmipl_to_interrec_csv.py）
+# 与 BOOK/MOVIE 同一 observed/future 协议
+seed: 42
+
+dataset:
+  name: mcmipl_yelp_star
+  raw_interactions_path: data/raw_mcmipl_yelp_star/interactions.csv
+  raw_items_path: data/raw_mcmipl_yelp_star/items.csv
+  processed_dir: data/processed_mcmipl_yelp_star
+  # Yelp-Star 交互长度介于 LastFM 与极短 Movie 之间；阈值略高于 book 以控稀疏
+  min_user_interactions: 12
+  min_item_interactions: 3
+  observed_ratio: 0.4
+  future_train_ratio: 0.7
+  future_valid_ratio: 0.1
+  future_test_ratio: 0.2
+  min_observed_interactions: 4
+  min_future_interactions: 5
+
+embedding:
+  mode: tfidf_svd
+  dim: 128
+  normalize: true
+  output_dir: data/processed_mcmipl_yelp_star
+
+belief:
+  sigma0: 1.0
+  jitter: 1e-6
+  init_mode: weighted_average
+
+recommendation:
+  top_k: 10
+  lambda_explore: 0.1
+  uncertainty_top_k: 5
+
+ask:
+  K_directions: 5
+  M_hypotheses: 5
+  n_options: 3
+  include_none: true
+  anchor_top_k: 5
+  representative_top_k: 5
+  tau_choice: 0.2
+  tau_none: 0.2
+  none_threshold: 0.25
+  none_bias: 0.0
+  mc_samples: 128
+  c_ask: 0.05
+  alpha_none: 1.2
+
+simulation:
+  split: test
+  max_turns: 5
+  max_users: 50
+  theta_star_split:
+    train: future_train
+    valid: future_valid
+    test: future_test
+  theta_star_mode: future_average
+  user_choice_mode: deterministic_argmax
+  tau_user_choice: 0.2
+  tau_user_click: 0.2
+
+llm:
+  mode: mock
+  provider: none
+  log_prompts: false
+  log_responses: false
+  max_retry: 3
+
+logging:
+  save_full_log: true
+  save_artifacts: true
+  generate_report: false
+  report_format: markdown
+  timestamp_run_id: true
+
+baselines:
+  mcmipl:
+    use_official_repo: true
+    repo_url: https://github.com/ZYM6-6/MCMIPL
+
+ablations:
+  no_bayesian_belief: false
+  no_information_gain: false
+  static_intent_prototype: false
+  fixed_ask_policy: false
+  free_text_feedback: false

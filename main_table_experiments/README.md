@@ -79,7 +79,7 @@ bash scripts/run_graph_init.sh LAST_FM_STAR
 |------|------|------|
 | A（CPU） | `run_pipeline_phase_cpu.sh` | 可选 `RUN_REBUILD_BOOK_MOVIE=1`；对每个数据集 `prepare_data` + `graph_init` |
 | B（GPU RL） | `run_pipeline_phase_gpu.sh` | 需已有各集 `tmp/<slug>/embeds/transe.pkl`；可设 `REQUIRE_TRANSE=1` |
-| A 后队列（BOOK 后其三集） | `scripts/run_phaseB_after_book_then_lastfm_yelp_movie.sh` | 等 BOOK 三 seed `DONE` 后，对每个集顺序：**TransE/OpenKE 检查**（缺 `transe.pkl` 默认失败；可设 `TRANSE_TRAIN_CMD` 或 `ALLOW_MISSING_TRANSE=1`）→ **Phase B RL**；顺序 `LAST_FM_STAR`→`YELP_STAR`→`MOVIE` |
+| A 后队列（BOOK 后其三集） | `scripts/run_phaseB_after_book_then_lastfm_yelp_movie.sh` | **与 `run_book_gpu_seeds_012.sh` 同款**：`unset MCMIPL_FORCE_CPU`、`TMPDIR`/`mcmipl_gpu_env_autofix`、`run_mcmipl.sh … 50 100 10`；仅多「先等 BOOK 三 seed `DONE`」，再按序 `LAST_FM_STAR`→`YELP_STAR`→`MOVIE` 各跑 seed 0–2。TransE 与 BOOK 一样事先自备，不在脚本内训练 |
 | B（仅 CPU RL） | `run_pipeline_phase_rl_cpu.sh` | 设置 `MCMIPL_FORCE_CPU=1` 后调用 Phase B 调度 |
 | 单机训练入口 | `run_mcmipl.sh` | `MCMIPL_DIR`/`LOG_DIR`/`MCMIPL_*_PYTHON` 可用环境变量覆盖 |
 

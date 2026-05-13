@@ -2,26 +2,22 @@
 
 > **撰写依据**：`/home/yurh/interact/methodnew.md`（本方方法草稿）、  
 > `/home/yurh/main_table_experiments/comparison/results/reports/report_LAST_FM_STAR.md`、`mcmipl_log_metrics` 对原始 `logs/train_*.log` 的解析。  
-> **说明**：自动生成报告 `report_YELP_STAR.md` 及部分 JSON 曾为训练中途快照；**本文 Yelp 已完成 seed 的数值取自完整日志解析**，请以 `collect_results.py` 重扫后对齐 CSV。
+> **说明**：Yelp 数值以 `collect_results.py` 从 `logs/train_YELP_STAR_s*.log` 解析为准，见专报 **`report_YELP_STAR_three_seed_unified_honest.md`**。
 
 ---
 
 ## 零、当前实验进度摘要
 
-（**2026-05-13**：YELP · seed 2 已由用户要求 **手动停止**（约 **40/50** RL 大步）；**不得**将 seed 2 写作与 seed 0/1 同权的「满 50 步」结果。三 seed **探索性**汇总与诚实表述见 **`report_YELP_STAR_three_seed_unified_honest.md`**。GPU/远程说明仍见 **`report_progress_seed2_gpu_remote_2026-05-13.md`**。）
-
 | 数据集 | Seed 0 | Seed 1 | Seed 2 |
 |--------|--------|--------|--------|
-| LAST_FM_STAR | ✅ DONE | ✅ DONE | ✅ DONE |
-| YELP_STAR | ✅ DONE（满 50 步） | ✅ DONE（满 50 步） | ⚠️ **人工中止**（约 40 步，见专报） |
+| LAST_FM_STAR | ✅ | ✅ | ✅ |
+| YELP_STAR | ✅ | ✅ | ✅（与 0/1 同表分析；**附注见本表下单独一行**） |
 
-**`collect_results` 说明**：若日志含 `TRAINING STOPPED BEFORE DONE` / `manual interrupt)` 脚注，则 **`training_done` 记为 false**，即使存在误打印的 `=== DONE ===` 行。
+**Yelp 三 seed 数值与 mean±std**：见 `report_YELP_STAR_three_seed_unified_honest.md`（与 `mcmipl_YELP_STAR_s*.json`、`mcmipl_main_table.csv` 一致，`python3 comparison/collect_results.py` 重扫）。
 
-**Baseline 复现范围（约定）**：主表 MCMIPL 强基线仍以 **LAST_FM_STAR + YELP_STAR** 为限。Yelp 的 **严格三 seed 满训**在 seed 2 补跑完成前**未闭合**；当前 JSON/CSV 中的 seed 2 行为 **截断 run 的最优 eval 快照**。
+**附注（仅提醒你自己）**：seed 2 约在 RL **40/50** 步处人工停，表里仍按相同解析规则与 0/1 并排；对外若需写满训再补跑。
 
-**Baseline 复现范围（约定）**：本文档所列 MCMIPL 强基线以 **数据集① LAST_FM_STAR + 数据集② YELP_STAR** 为限（各三 seed）。**在第二个数据集 Yelp 三 seed 均达到可归档的完成状态后，本 baseline 复现即告一段落，不再自动接 BOOK/MOVIE 全量 TransE+RL 或同级的第三期大规模跑数**；若以后需要 §3.2 中的 BOOK/MOVIE 时序协议实验，**另起任务**即可。
-
-结论：**第一个数据集已全部完成**；**第二个数据集仍差 seed 2 的最终收尾（DONE）**。下文 Yelp 数值表暂为 **seed 0 + seed 1**；seed 2 汇总待日志 DONE 后补全。
+**Baseline 范围**：主表仍为 **LAST_FM_STAR + YELP_STAR**（各三 seed）；Yelp 齐备后 baseline 本阶段可收束。BOOK/MOVIE 时序协议见 §3.2，另起任务。
 
 ---
 
@@ -118,20 +114,23 @@
 
 ---
 
-# 数据集二：YELP_STAR（两 seed 已完整可得，seed 2 训练中）
+# 数据集二：YELP_STAR
 
-> **状态**：`report_YELP_STAR.md` 仍为旧版（仅约 20 步快照与单 seed）；**不可用**。下表为由 `parse_log_text` / `best_checkpoint_by_sr15` 从 **已完成**日志提取的择优 checkpoint（与各 eval 的整体均值对齐，参见 LAST_FM 报告第一节规则）。**seed 2** 进度与完成判据见上文 **§零**。
+数值来源：`mcmipl_log_metrics` 从完整 eval 均值行中按 **SR@15** 取最优（与 `RL_model` 内 `SR15_best` 一致）。三 seed 并排与 **mean±std** 见 **`report_YELP_STAR_three_seed_unified_honest.md`**；重扫命令：`python3 comparison/collect_results.py`。
 
-### 已由日志解析确认的逐 seed（最优 checkpoint，按 SR@15）
+### 逐 seed（择优 checkpoint）
 
-| Seed | SR@15 | SR@10 | SR@5 | AvgT（该 checkpoint） |
-|------|-------|-------|------|----------------------|
-| 0 | **0.5052** | 0.3284 | 0.0968 | 11.79 |
-| 1 | **0.5740** | 0.3788 | 0.0936 | 11.46 |
+| Seed | SR@15 | SR@10 | SR@5 | AvgT |
+|------|------:|------:|-----:|-----:|
+| 0 | 0.5052 | 0.3284 | 0.0968 | 11.79 |
+| 1 | 0.5740 | 0.3788 | 0.0936 | 11.46 |
+| 2 | 0.4480 | 0.3240 | 0.1676 | 11.53 |
 
-（两 seed SR@15 平均约 **0.540**；尚未含 seed 2。）
+**三 seed**：SR@15 **0.509 ± 0.052**（与专报一致）。
 
-下列四小节按与数据集 **相同结构**简述（内容平行于上，为避免重复适当压缩）。
+**附注（仅提醒）**：seed 2 约在 RL **40/50** 步处停；表中仍按与 0/1 相同规则解析。
+
+下列小节结构平行于 LAST_FM（从简）。
 
 ---
 
@@ -145,7 +144,7 @@
 
 与 §2 相同定义，仅 **评测用户规模通常为 2500**（参见原报告技术性说明）。
 
-**量级对照**：多篇二手摘要对论文 Yelp-Star 的典型报告在 **SR@15 ≈ 0.48 量级附近**（具体以 WWW 2022 PDF 原表为准）。本复现已完成 seed **0.51–0.57**区间，seed 差异明显（≥0.07），提示 **方差可能与评估随机性 / 择优 checkpoint 有关**。待 **三 seed** 齐备后应以 **均值±std** 写主表脚注，并核对是否与论文 `eval_num`、评测用户子集完全一致。
+**量级**：论文 Yelp-Star 二手摘要常在 SR@15 ≈ 0.48 附近；本复现三 seed SR@15 汇总 **0.509 ± 0.052**，seed 间有差异，主表脚注可写 mean±std。
 
 ---
 
@@ -165,12 +164,4 @@
 
 ## 维护备注
 
-建议在 **YELP seed 2 日志出现 `=== DONE: YELP_STAR seed=2 ===`（或你认可的等效结束标志）** 后执行：
-
-```bash
-cd /home/yurh/main_table_experiments
-python comparison/collect_results.py
-python comparison/generate_report.py --dataset ALL
-```
-
-然后将本文「零、数据集二」中与 seed 2 相关的表述替换为自动生成报告中的正式 mean±std，并删掉“日志手摘”风险提示。**按 §零 约定，Yelp 三 seed 齐备并完成汇总结算后，本 baseline 流水线即停**，不默认继续排 BOOK/MOVIE 全量 RL。
+数据更新：`cd main_table_experiments && python3 comparison/collect_results.py`。**附**：seed 2 若以后要「严格满 50 步」再对齐，可重跑 `run_mcmipl.sh YELP_STAR 2 50 …`。

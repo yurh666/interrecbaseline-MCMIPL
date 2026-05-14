@@ -60,12 +60,19 @@ def train(args, kg, dataset, filename):
         agent.load_model(data_name=args.data_name, filename=filename, epoch_user=args.load_rl_epoch)
 
     test_performance = []
+    phase_timings = os.environ.get('MCMIPL_RL_PHASE_TIMINGS') == '1'
+    t_acc = {'eval_s': 0.0, 'train_sampling_s': 0.0, 'eval_calls': 0} if phase_timings else None
     if args.eval_num == 10:
+        _t0 = time.perf_counter()
         SR15_mean = dqn_evaluate(args, kg, dataset, agent, filename, 0)
+        if t_acc is not None:
+            t_acc['eval_s'] += time.perf_counter() - _t0
+            t_acc['eval_calls'] += 1
         test_performance.append(SR15_mean)
     for train_step in range(1, args.max_steps+1):
         SR5, SR10, SR15, AvgT, Rank, total_reward = 0., 0., 0., 0., 0., 0.
         loss = torch.tensor(0, dtype=torch.float, device=args.device)
+        _t_s = time.perf_counter()
         for i_episode in tqdm(range(args.sample_times),desc='sampling'):
             blockPrint()
             print('\n================new tuple:{}===================='.format(i_episode))
@@ -117,6 +124,8 @@ def train(args, kg, dataset, filename):
                     AvgT += t+1
                     total_reward += epi_reward
                     break
+        if t_acc is not None:
+            t_acc['train_sampling_s'] += time.perf_counter() - _t_s
         enablePrint() # Enable print function
         print('loss : {} in epoch_uesr {}'.format(loss.item()/args.sample_times, args.sample_times))
         print('SR5:{}, SR10:{}, SR15:{}, AvgT:{}, Rank:{}, rewards:{} '
@@ -124,7 +133,11 @@ def train(args, kg, dataset, filename):
                                                 AvgT / args.sample_times, Rank / args.sample_times, total_reward / args.sample_times, args.sample_times))
 
         if train_step % args.eval_num == 0:
+            _t0 = time.perf_counter()
             SR5_mean, SR10_mean, SR15_mean, AvgT_mean, Rank_mean = dqn_evaluate(args, kg, dataset, agent, filename, train_step)
+            if t_acc is not None:
+                t_acc['eval_s'] += time.perf_counter() - _t0
+                t_acc['eval_calls'] += 1
             if SR15_mean>SR15_best:
                 SR5_best, SR10_best, SR15_best, AvgT_best, Rank_best=SR5_mean, SR10_mean, SR15_mean, AvgT_mean, Rank_mean
             print("best!!!!!!!!!SR5:{}, SR10:{}, SR15:{}, AvgT:{}, Rank:{}!!!!".format(
@@ -133,6 +146,16 @@ def train(args, kg, dataset, filename):
         if train_step % args.save_num == 0:
             agent.save_model(data_name=args.data_name, filename=filename, epoch_user=train_step)
     print(test_performance)
+    if t_acc is not None:
+        tot = t_acc['eval_s'] + t_acc['train_sampling_s']
+        ev_pct = (100.0 * t_acc['eval_s'] / tot) if tot > 0 else 0.0
+        tr_pct = (100.0 * t_acc['train_sampling_s'] / tot) if tot > 0 else 0.0
+        print(
+            '[MCMIPL_RL_PHASE_TIMINGS] device={} eval_s={:.3f} train_sampling_s={:.3f} total_s={:.3f} '
+            'eval_pct={:.1f}% train_sampling_pct={:.1f}% eval_calls={}'.format(
+                args.device, t_acc['eval_s'], t_acc['train_sampling_s'], tot, ev_pct, tr_pct, t_acc['eval_calls'],
+            )
+        )
 
 
 def main():

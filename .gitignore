@@ -17,3 +17,8 @@ venv/
 *.pid
 **/setup_gpu_baseline_nohup.out
 main_table_experiments/.tmp/
+
+# 离线快照（含较大 pkl；源码库只保留脚本，bundle 请在本地或对象存储保留）
+main_table_experiments/artifacts/offline_mcmipl_graph_transe_*/
+main_table_experiments/artifacts/offline_mcmipl_graph_transe_*.tar.gz
+main_table_experiments/artifacts/offline_mcmipl_graph_transe_LATEST

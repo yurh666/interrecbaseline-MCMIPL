@@ -1,3 +1,4 @@
+import os
 import time
 import argparse
 from itertools import count
@@ -43,6 +44,16 @@ def dqn_evaluate(args, kg, dataset, agent, filename, i_episode):
             test_size = 2500     # Only do 2500 iteration for the sake of time
         user_size = test_size
     print('The select Test size : ', test_size)
+    _prof = os.environ.get('MCMIPL_RL_PROFILE_TEST_USERS')
+    if _prof:
+        try:
+            cap = int(_prof)
+            if cap > 0:
+                test_size = min(test_size, cap)
+                user_size = test_size
+                print('[MCMIPL_RL_PROFILE_TEST_USERS] capped test_size to', test_size)
+        except ValueError:
+            print('[MCMIPL_RL_PROFILE_TEST_USERS] invalid int, ignored:', _prof)
     for user_num in tqdm(range(user_size)):  #user_size
         # TODO uncommend this line to print the dialog process
         blockPrint()

@@ -85,6 +85,8 @@ bash scripts/run_graph_init.sh LAST_FM_STAR
 
 Phase A 完成后可运行 `bash scripts/record_phase_a_artifacts.sh` 生成 `artifacts/phase_a_manifest_*.txt`（sha256 清单），便于提交 git 与交给 GPU 机核对。
 
+**RL 阶段 GPU/CPU 与耗时结构**（不含 TransE）：见 [`docs/RL_PHASE_TIMING_METHODOLOGY.md`](docs/RL_PHASE_TIMING_METHODOLOGY.md)；快速对比可 `bash scripts/profile_rl_gpu_cpu_compare.sh`（默认缩短评测用户，仅用于剖析）。
+
 完整交接文案与「给 AI 的 GPU Prompt」见仓库根目录 [`docs/HANDOFF_RUNBOOK.md`](../docs/HANDOFF_RUNBOOK.md)。**若只在** `baselines/mcmipl_official/scripts/` **下找脚本**，同仓库也提供转发到上述入口的同名 `.sh`（避免路径混淆；以 `main_table_experiments/` 下文件为准）。
 
 ### 4. 训练

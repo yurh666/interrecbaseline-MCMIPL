@@ -70,7 +70,7 @@ ROWS
   find . -type f \( -name '*.pkl' -o -name 'README.txt' \) | sort | xargs -r sha256sum
 ) | tee "${BUNDLE}/SHA256SUMS.txt"
 
-ln -sf "$(basename "$BUNDLE")" "${OUT_ROOT}/offline_mcmipl_graph_transe_LATEST" 2>/dev/null || true
+ln -sfn "$(basename "$BUNDLE")" "${OUT_ROOT}/offline_mcmipl_graph_transe_LATEST"
 
 if [[ "$_missing" -ne 0 ]]; then
   echo "[ERROR] 有缺失 pkl，请按官方 README 完成 graph_init / OpenKE TransE 后再快照。" >&2

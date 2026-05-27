@@ -6,7 +6,7 @@ import random
 from utils import *
 from torch import nn
 import ipdb
-from tkinter import _flatten
+from itertools import chain
 from collections import Counter
 
 
@@ -582,7 +582,7 @@ class MultiChoiceRecommendEnv(object):
             cand_items_fea_list = []
             for item_id in self.cand_items:
                 cand_items_fea_list.append(list(self.kg.G['item'][item_id]['belong_to']))
-            cand_items_fea_list = list(_flatten(cand_items_fea_list))
+            cand_items_fea_list = list(chain.from_iterable(cand_items_fea_list))
             self.attr_count_dict = dict(Counter(cand_items_fea_list))
             self.attr_ent = [0] * self.attr_state_num  # reset attr_ent
             real_ask_able = list(set(self.reachable_feature) & set(self.attr_count_dict.keys()))

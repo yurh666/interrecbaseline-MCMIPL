@@ -64,8 +64,25 @@ def load_embed(dataset, embed, epoch):
         return embeds
 
 
+def _rl_agent_dir(dataset):
+    """Per-seed subdirectory when MCMIPL_RL_SEED is set (avoids cross-seed overwrite)."""
+    base = TMP_DIR[dataset] + '/RL-agent'
+    seed = os.environ.get('MCMIPL_RL_SEED', '').strip()
+    if seed:
+        return base + '/seed_' + seed
+    return base
+
+
+def _rl_agent_model_path(dataset, filename, epoch_user):
+    return _rl_agent_dir(dataset) + '/' + filename + '-epoch-{}.pkl'.format(epoch_user)
+
+
 def load_rl_agent(dataset, filename, epoch_user):
-    model_file = TMP_DIR[dataset] + '/RL-agent/' + filename + '-epoch-{}.pkl'.format(epoch_user)
+    model_file = _rl_agent_model_path(dataset, filename, epoch_user)
+    if not os.path.isfile(model_file):
+        legacy = TMP_DIR[dataset] + '/RL-agent/' + filename + '-epoch-{}.pkl'.format(epoch_user)
+        if os.path.isfile(legacy):
+            model_file = legacy
     try:
         model_dict = torch.load(model_file, map_location='cpu', weights_only=False)
     except TypeError:
@@ -73,10 +90,12 @@ def load_rl_agent(dataset, filename, epoch_user):
     print('RL policy model load at {}'.format(model_file))
     return model_dict
 
+
 def save_rl_agent(dataset, model, filename, epoch_user):
-    model_file = TMP_DIR[dataset] + '/RL-agent/' + filename + '-epoch-{}.pkl'.format(epoch_user)
-    if not os.path.isdir(TMP_DIR[dataset] + '/RL-agent/'):
-        os.makedirs(TMP_DIR[dataset] + '/RL-agent/')
+    agent_dir = _rl_agent_dir(dataset)
+    model_file = agent_dir + '/' + filename + '-epoch-{}.pkl'.format(epoch_user)
+    if not os.path.isdir(agent_dir):
+        os.makedirs(agent_dir)
     torch.save(model.state_dict(), model_file)
     print('RL policy model saved at {}'.format(model_file))
 

@@ -23,3 +23,7 @@ main_table_experiments/.tmp/
 main_table_experiments/artifacts/offline_mcmipl_graph_transe_*/
 main_table_experiments/artifacts/offline_mcmipl_graph_transe_*.tar.gz
 main_table_experiments/artifacts/offline_mcmipl_graph_transe_LATEST
+
+# RL 训练中间态（只提交 archives/ 与脚本，不提交 tmp 下 pkl）
+main_table_experiments/baselines/mcmipl_official/MCMIPL/tmp/**/RL-agent/**/*.pkl
+main_table_experiments/baselines/mcmipl_official/MCMIPL/tmp/**/RL-agent/seed_*/

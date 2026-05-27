@@ -1,0 +1,5 @@
+dataset,has_usable_predictions,primary_file,sessions,reason
+lastfm,yes,/home/yrh666/interrecbaseline-TAIRA/experiments/mcmipl_interrec_protocol_eval/transfer_to_cpu_kgitem_eval/mcmipl_predictions_kgitem_full.jsonl,500,TAIRA transfer_to_cpu_kgitem_eval 500行 MCMIPL-KGItemEval；MCMIPL仓库无副本
+book,no,,0,全盘搜索无 mcmipl_predictions_kgitem_book.jsonl 或等价 per-session jsonl
+movie,no,,0,无 movie KGItemEval predictions 导出
+yelp,no,,0,无 yelp KGItemEval predictions 导出

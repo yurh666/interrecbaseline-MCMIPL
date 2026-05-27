@@ -1,0 +1,221 @@
+{
+  "generated_at": "2026-05-27T11:26:54.648165",
+  "note": "CRS metrics from logs; InterRec ID protocol still requires checkpoint + eval export",
+  "rows": [
+    {
+      "log_file": "train_BOOK_s0.log",
+      "dataset": "BOOK",
+      "seed": 0,
+      "phase_b_done_in_log": true,
+      "best_valid_crs": {
+        "SR5": 0.1788,
+        "SR10": 0.3884,
+        "SR15": 0.5352,
+        "AvgT": 10.9696
+      },
+      "checkpoint_epochs_in_log": [
+        10,
+        20,
+        30,
+        40,
+        50
+      ],
+      "has_rl_policy_saved": true
+    },
+    {
+      "log_file": "train_BOOK_s1.log",
+      "dataset": "BOOK",
+      "seed": 1,
+      "phase_b_done_in_log": true,
+      "best_valid_crs": {
+        "SR5": 0.2008,
+        "SR10": 0.40759999999999996,
+        "SR15": 0.5584,
+        "AvgT": 10.713200000000002
+      },
+      "checkpoint_epochs_in_log": [
+        10,
+        20,
+        30,
+        40,
+        50
+      ],
+      "has_rl_policy_saved": true
+    },
+    {
+      "log_file": "train_BOOK_s2.log",
+      "dataset": "BOOK",
+      "seed": 2,
+      "phase_b_done_in_log": true,
+      "best_valid_crs": {
+        "SR5": 0.19079999999999997,
+        "SR10": 0.4068,
+        "SR15": 0.5488000000000001,
+        "AvgT": 10.751599999999998
+      },
+      "checkpoint_epochs_in_log": [
+        10,
+        20,
+        30,
+        40,
+        50
+      ],
+      "has_rl_policy_saved": true
+    },
+    {
+      "log_file": "train_LAST_FM_STAR_s0.log",
+      "dataset": "LAST_FM_STAR",
+      "seed": 0,
+      "phase_b_done_in_log": true,
+      "best_valid_crs": {
+        "SR5": 0.44475,
+        "SR10": 0.56675,
+        "SR15": 0.626,
+        "AvgT": 8.263
+      },
+      "checkpoint_epochs_in_log": [
+        30,
+        40,
+        50
+      ],
+      "has_rl_policy_saved": true
+    },
+    {
+      "log_file": "train_LAST_FM_STAR_s1.log",
+      "dataset": "LAST_FM_STAR",
+      "seed": 1,
+      "phase_b_done_in_log": true,
+      "best_valid_crs": {
+        "SR5": 0.44799999999999995,
+        "SR10": 0.5820000000000001,
+        "SR15": 0.6385,
+        "AvgT": 8.115
+      },
+      "checkpoint_epochs_in_log": [
+        10,
+        20,
+        30,
+        40,
+        50
+      ],
+      "has_rl_policy_saved": true
+    },
+    {
+      "log_file": "train_LAST_FM_STAR_s2.log",
+      "dataset": "LAST_FM_STAR",
+      "seed": 2,
+      "phase_b_done_in_log": true,
+      "best_valid_crs": {
+        "SR5": 0.44925,
+        "SR10": 0.5754999999999999,
+        "SR15": 0.636,
+        "AvgT": 8.171000000000001
+      },
+      "checkpoint_epochs_in_log": [
+        10,
+        20,
+        30,
+        40,
+        50
+      ],
+      "has_rl_policy_saved": true
+    },
+    {
+      "log_file": "train_MOVIE_s0.log",
+      "dataset": "MOVIE",
+      "seed": 0,
+      "phase_b_done_in_log": true,
+      "best_valid_crs": {
+        "SR5": 0.19160000000000005,
+        "SR10": 0.4799999999999999,
+        "SR15": 0.6444,
+        "AvgT": 10.3072
+      },
+      "checkpoint_epochs_in_log": [
+        10,
+        20,
+        30,
+        40,
+        50
+      ],
+      "has_rl_policy_saved": true
+    },
+    {
+      "log_file": "train_MOVIE_s1.log",
+      "dataset": "MOVIE",
+      "seed": 1,
+      "phase_b_done_in_log": true,
+      "best_valid_crs": null,
+      "checkpoint_epochs_in_log": [],
+      "has_rl_policy_saved": false
+    },
+    {
+      "log_file": "train_MOVIE_s2.log",
+      "dataset": "MOVIE",
+      "seed": 2,
+      "phase_b_done_in_log": true,
+      "best_valid_crs": {
+        "SR5": 0.18520000000000003,
+        "SR10": 0.49079999999999996,
+        "SR15": 0.6384,
+        "AvgT": 10.2704
+      },
+      "checkpoint_epochs_in_log": [
+        10,
+        20,
+        30,
+        40,
+        50
+      ],
+      "has_rl_policy_saved": true
+    },
+    {
+      "log_file": "train_YELP_STAR_s0.log",
+      "dataset": "YELP_STAR",
+      "seed": 0,
+      "phase_b_done_in_log": false,
+      "best_valid_crs": {
+        "SR5": 0.0456,
+        "SR10": 0.2544,
+        "SR15": 0.45559999999999995,
+        "AvgT": 12.5584
+      },
+      "checkpoint_epochs_in_log": [
+        10,
+        20,
+        30
+      ],
+      "has_rl_policy_saved": true
+    },
+    {
+      "log_file": "train_YELP_STAR_s1.log",
+      "dataset": "YELP_STAR",
+      "seed": 1,
+      "phase_b_done_in_log": true,
+      "best_valid_crs": {
+        "SR5": 0.09360000000000002,
+        "SR10": 0.3788,
+        "SR15": 0.574,
+        "AvgT": 11.463999999999999
+      },
+      "checkpoint_epochs_in_log": [
+        50
+      ],
+      "has_rl_policy_saved": true
+    },
+    {
+      "log_file": "train_YELP_STAR_s2.log",
+      "dataset": "YELP_STAR",
+      "seed": 2,
+      "phase_b_done_in_log": true,
+      "best_valid_crs": {
+        "SR5": 0.16759999999999997,
+        "SR10": 0.324,
+        "SR15": 0.44799999999999995,
+        "AvgT": 11.531600000000001
+      },
+      "checkpoint_epochs_in_log": [],
+      "has_rl_policy_saved": false
+    }
+  ]
+}

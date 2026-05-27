@@ -1,0 +1,13 @@
+dataset=YELP_STAR
+slug=yelp_star
+seed=0
+archived_at=2026-05-27T11:26:54+08:00
+source_mcmipl=/home/yrh666/interrecbaseline-MCMIPL/main_table_experiments/baselines/mcmipl_official/MCMIPL
+rl_agent_files:
+total 448
+drwxr-xr-x 2 yrh666 yrh666   4096 May 26 23:37 .
+drwxr-xr-x 4 yrh666 yrh666     92 May 27 11:26 ..
+-rw-r--r-- 1 yrh666 yrh666 112336 May 25 15:25 train-data-YELP_STAR-RL-cand_num-10-cand_item_num-10-embed-transe-seq-transformer-gcn-True-epoch-10.pkl
+-rw-r--r-- 1 yrh666 yrh666 112336 May 26 08:09 train-data-YELP_STAR-RL-cand_num-10-cand_item_num-10-embed-transe-seq-transformer-gcn-True-epoch-20.pkl
+-rw-r--r-- 1 yrh666 yrh666 112336 May 26 23:37 train-data-YELP_STAR-RL-cand_num-10-cand_item_num-10-embed-transe-seq-transformer-gcn-True-epoch-30.pkl
+-rw-r--r-- 1 yrh666 yrh666 110207 May 16 22:25 train-data-YELP_STAR-RL-cand_num-10-cand_item_num-10-embed-transe-seq-transformer-gcn-True-epoch-50.pkl

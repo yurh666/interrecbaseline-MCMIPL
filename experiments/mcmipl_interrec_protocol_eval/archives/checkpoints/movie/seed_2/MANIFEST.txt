@@ -1,0 +1,14 @@
+dataset=MOVIE
+slug=movie
+seed=2
+archived_at=2026-05-27T11:26:54+08:00
+source_mcmipl=/home/yrh666/interrecbaseline-MCMIPL/main_table_experiments/baselines/mcmipl_official/MCMIPL
+rl_agent_files:
+total 564
+drwxr-xr-x 2 yrh666 yrh666   4096 May 20 04:25 .
+drwxr-xr-x 4 yrh666 yrh666     88 May 27 11:26 ..
+-rw-r--r-- 1 yrh666 yrh666 112288 May 20 17:25 train-data-MOVIE-RL-cand_num-10-cand_item_num-10-embed-transe-seq-transformer-gcn-True-epoch-10.pkl
+-rw-r--r-- 1 yrh666 yrh666 112288 May 20 22:04 train-data-MOVIE-RL-cand_num-10-cand_item_num-10-embed-transe-seq-transformer-gcn-True-epoch-20.pkl
+-rw-r--r-- 1 yrh666 yrh666 112288 May 21 02:28 train-data-MOVIE-RL-cand_num-10-cand_item_num-10-embed-transe-seq-transformer-gcn-True-epoch-30.pkl
+-rw-r--r-- 1 yrh666 yrh666 112288 May 21 07:03 train-data-MOVIE-RL-cand_num-10-cand_item_num-10-embed-transe-seq-transformer-gcn-True-epoch-40.pkl
+-rw-r--r-- 1 yrh666 yrh666 112288 May 21 11:39 train-data-MOVIE-RL-cand_num-10-cand_item_num-10-embed-transe-seq-transformer-gcn-True-epoch-50.pkl

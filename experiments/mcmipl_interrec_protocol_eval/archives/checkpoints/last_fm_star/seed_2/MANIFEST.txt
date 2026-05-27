@@ -1,0 +1,17 @@
+dataset=LAST_FM_STAR
+slug=last_fm_star
+seed=2
+archived_at=2026-05-27T11:26:54+08:00
+source_mcmipl=/home/yrh666/interrecbaseline-MCMIPL/main_table_experiments/baselines/mcmipl_official/MCMIPL
+rl_agent_files:
+total 892
+drwxr-xr-x 2 yrh666 yrh666   4096 May 23 06:23 .
+drwxr-xr-x 4 yrh666 yrh666     95 May 27 11:26 ..
+-rw-r--r-- 1 yrh666 yrh666 112372 May 24 04:57 train-data-LAST_FM_STAR-RL-cand_num-10-cand_item_num-10-embed-transe-seq-transformer-gcn-True-epoch-10.pkl
+-rw-r--r-- 1 yrh666 yrh666 110199 May 16 22:25 train-data-LAST_FM_STAR-RL-cand_num-10-cand_item_num-10-embed-transe-seq-transformer-gcn-True-epoch-100.pkl
+-rw-r--r-- 1 yrh666 yrh666 112360 May 16 22:38 train-data-LAST_FM_STAR-RL-cand_num-10-cand_item_num-10-embed-transe-seq-transformer-gcn-True-epoch-2.pkl
+-rw-r--r-- 1 yrh666 yrh666 112372 May 24 08:24 train-data-LAST_FM_STAR-RL-cand_num-10-cand_item_num-10-embed-transe-seq-transformer-gcn-True-epoch-20.pkl
+-rw-r--r-- 1 yrh666 yrh666 112372 May 24 11:58 train-data-LAST_FM_STAR-RL-cand_num-10-cand_item_num-10-embed-transe-seq-transformer-gcn-True-epoch-30.pkl
+-rw-r--r-- 1 yrh666 yrh666 112372 May 24 15:25 train-data-LAST_FM_STAR-RL-cand_num-10-cand_item_num-10-embed-transe-seq-transformer-gcn-True-epoch-40.pkl
+-rw-r--r-- 1 yrh666 yrh666 110143 May 16 22:25 train-data-LAST_FM_STAR-RL-cand_num-10-cand_item_num-10-embed-transe-seq-transformer-gcn-True-epoch-5.pkl
+-rw-r--r-- 1 yrh666 yrh666 112372 May 24 18:54 train-data-LAST_FM_STAR-RL-cand_num-10-cand_item_num-10-embed-transe-seq-transformer-gcn-True-epoch-50.pkl

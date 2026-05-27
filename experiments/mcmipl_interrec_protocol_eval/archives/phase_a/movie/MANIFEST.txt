@@ -1,0 +1,11 @@
+dataset=MOVIE
+slug=movie
+archived_at=2026-05-27T11:26:53+08:00
+files:
+/home/yrh666/interrecbaseline-MCMIPL/main_table_experiments/../experiments/mcmipl_interrec_protocol_eval/archives/phase_a/movie/MANIFEST.txt
+/home/yrh666/interrecbaseline-MCMIPL/main_table_experiments/../experiments/mcmipl_interrec_protocol_eval/archives/phase_a/movie/UI_Interaction_data/review_dict_test.json
+/home/yrh666/interrecbaseline-MCMIPL/main_table_experiments/../experiments/mcmipl_interrec_protocol_eval/archives/phase_a/movie/UI_Interaction_data/review_dict_train.json
+/home/yrh666/interrecbaseline-MCMIPL/main_table_experiments/../experiments/mcmipl_interrec_protocol_eval/archives/phase_a/movie/UI_Interaction_data/review_dict_valid.json
+/home/yrh666/interrecbaseline-MCMIPL/main_table_experiments/../experiments/mcmipl_interrec_protocol_eval/archives/phase_a/movie/dataset.pkl
+/home/yrh666/interrecbaseline-MCMIPL/main_table_experiments/../experiments/mcmipl_interrec_protocol_eval/archives/phase_a/movie/embeds/transe.pkl
+/home/yrh666/interrecbaseline-MCMIPL/main_table_experiments/../experiments/mcmipl_interrec_protocol_eval/archives/phase_a/movie/kg.pkl

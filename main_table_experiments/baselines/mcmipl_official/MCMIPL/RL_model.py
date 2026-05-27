@@ -62,14 +62,31 @@ def train(args, kg, dataset, filename):
     test_performance = []
     phase_timings = os.environ.get('MCMIPL_RL_PHASE_TIMINGS') == '1'
     t_acc = {'eval_s': 0.0, 'train_sampling_s': 0.0, 'eval_calls': 0} if phase_timings else None
-    if args.eval_num == 10:
+    # 冷启动时做一次 step-0 评测；断点续跑（load_rl_epoch>0）跳过以免重复耗时
+    if args.eval_num == 10 and args.load_rl_epoch == 0:
         _t0 = time.perf_counter()
         SR15_mean = dqn_evaluate(args, kg, dataset, agent, filename, 0)
         if t_acc is not None:
             t_acc['eval_s'] += time.perf_counter() - _t0
             t_acc['eval_calls'] += 1
         test_performance.append(SR15_mean)
-    for train_step in range(1, args.max_steps+1):
+    start_step = 1
+    if args.load_rl_epoch > 0:
+        start_step = args.load_rl_epoch + 1
+        if start_step > args.max_steps:
+            print(
+                '[resume] load_rl_epoch={} >= max_steps={}，无需继续训练。'.format(
+                    args.load_rl_epoch, args.max_steps,
+                )
+            )
+            print(test_performance)
+            return
+        print(
+            '[resume] 已从 checkpoint {} 加载，将从 step {} 训练到 {}'.format(
+                args.load_rl_epoch, start_step, args.max_steps,
+            )
+        )
+    for train_step in range(start_step, args.max_steps + 1):
         SR5, SR10, SR15, AvgT, Rank, total_reward = 0., 0., 0., 0., 0., 0.
         loss = torch.tensor(0, dtype=torch.float, device=args.device)
         _t_s = time.perf_counter()

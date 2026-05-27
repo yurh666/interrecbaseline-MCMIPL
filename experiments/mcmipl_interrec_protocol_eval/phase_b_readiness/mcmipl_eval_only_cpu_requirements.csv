@@ -1,0 +1,13 @@
+dataset_slug,data_name,seed,phase_a_dataset_pkl,phase_a_kg_pkl,phase_a_transe_pkl,review_dict_train,review_dict_valid,review_dict_test,evaluate_py,eval_mcmipl_on_interrec_protocol_py,valid_catalog_mode_kg_item_all,rl_checkpoint_on_disk,phase_b_done_all_seeds_for_dataset,readiness_status,ready_eval_only_on_cpu
+last_fm_star,LAST_FM_STAR,0,yes,yes,yes,yes,yes,yes,yes,no,no,no,yes,checkpoint_log_done_ckpt_overwritten,no
+last_fm_star,LAST_FM_STAR,1,yes,yes,yes,yes,yes,yes,yes,no,no,no,yes,checkpoint_log_done_ckpt_overwritten,no
+last_fm_star,LAST_FM_STAR,2,yes,yes,yes,yes,yes,yes,yes,no,no,yes,yes,blocked_missing_eval_script,no
+book,BOOK,0,yes,yes,yes,yes,yes,yes,yes,no,no,no,yes,checkpoint_log_done_ckpt_overwritten,no
+book,BOOK,1,yes,yes,yes,yes,yes,yes,yes,no,no,no,yes,checkpoint_log_done_ckpt_overwritten,no
+book,BOOK,2,yes,yes,yes,yes,yes,yes,yes,no,no,yes,yes,blocked_missing_eval_script,no
+movie,MOVIE,0,yes,yes,yes,yes,yes,yes,yes,no,no,no,no,checkpoint_log_done_ckpt_overwritten,no
+movie,MOVIE,1,yes,yes,yes,yes,yes,yes,yes,no,no,no,no,phase_b_incomplete,no
+movie,MOVIE,2,yes,yes,yes,yes,yes,yes,yes,no,no,yes,no,blocked_missing_eval_script,no
+yelp_star,YELP_STAR,0,yes,yes,yes,yes,yes,yes,yes,no,no,partial_10_20_30,no,phase_b_incomplete,no
+yelp_star,YELP_STAR,1,yes,yes,yes,yes,yes,yes,yes,no,no,no,no,phase_b_incomplete,no
+yelp_star,YELP_STAR,2,yes,yes,yes,yes,yes,yes,yes,no,no,no,no,phase_b_incomplete,no

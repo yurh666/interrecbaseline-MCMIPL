@@ -1,0 +1,15 @@
+dataset=BOOK
+slug=book
+seed=2
+archived_at=2026-05-27T11:26:54+08:00
+source_mcmipl=/home/yrh666/interrecbaseline-MCMIPL/main_table_experiments/baselines/mcmipl_official/MCMIPL
+rl_agent_files:
+total 672
+drwxr-xr-x 2 yrh666 yrh666   4096 May 17 15:44 .
+drwxr-xr-x 4 yrh666 yrh666     87 May 27 11:26 ..
+-rw-r--r-- 1 yrh666 yrh666 110135 May 16 22:25 train-data-BOOK-RL-cand_num-10-cand_item_num-10-embed-transe-seq-transformer-gcn-True-epoch-1.pkl
+-rw-r--r-- 1 yrh666 yrh666 112276 May 18 14:05 train-data-BOOK-RL-cand_num-10-cand_item_num-10-embed-transe-seq-transformer-gcn-True-epoch-10.pkl
+-rw-r--r-- 1 yrh666 yrh666 112276 May 18 17:27 train-data-BOOK-RL-cand_num-10-cand_item_num-10-embed-transe-seq-transformer-gcn-True-epoch-20.pkl
+-rw-r--r-- 1 yrh666 yrh666 112276 May 18 20:50 train-data-BOOK-RL-cand_num-10-cand_item_num-10-embed-transe-seq-transformer-gcn-True-epoch-30.pkl
+-rw-r--r-- 1 yrh666 yrh666 112276 May 19 00:09 train-data-BOOK-RL-cand_num-10-cand_item_num-10-embed-transe-seq-transformer-gcn-True-epoch-40.pkl
+-rw-r--r-- 1 yrh666 yrh666 112276 May 19 03:16 train-data-BOOK-RL-cand_num-10-cand_item_num-10-embed-transe-seq-transformer-gcn-True-epoch-50.pkl

@@ -7,6 +7,8 @@ SEED=${2:-0}
 MAX_STEPS=${3:-50}
 SAMPLE_TIMES=${4:-100}
 EVAL_NUM=${5:-10}
+# 默认同 max_steps（与原主表脚本一致）；断点续跑建议 export MCMIPL_SAVE_NUM=10 等，使 RL-agent 周期性落盘
+SAVE_NUM="${MCMIPL_SAVE_NUM:-$MAX_STEPS}"
 
 MCMIPL_DIR="${MCMIPL_DIR:-$_RUN_ROOT/baselines/mcmipl_official/MCMIPL}"
 LOG_DIR="${MCMIPL_LOG_DIR:-$_RUN_ROOT/logs}"
@@ -71,14 +73,21 @@ mkdir -p "$LOG_DIR"
 LOG_FILE="$LOG_DIR/train_${DATASET}_s${SEED}.log"
 
 {
-  echo "=== MCMIPL | $DATASET | seed=$SEED | steps=$MAX_STEPS | $(date) ==="
+  echo "=== MCMIPL | $DATASET | seed=$SEED | steps=$MAX_STEPS | save_num=$SAVE_NUM | $(date) ==="
   echo "=== PYTHON: $PYTHON ==="
   if [[ -n "${MCMIPL_FORCE_CPU:-}" ]]; then
     echo "=== MCMIPL_FORCE_CPU=1 (CUDA hidden, CPU training — slow) ==="
   fi
+  echo "=== MCMIPL_RL_SEED=${SEED} (checkpoints -> tmp/*/RL-agent/seed_${SEED}/) ==="
 } | tee "$LOG_FILE"
 
 cd "$MCMIPL_DIR" || exit 1
+export MCMIPL_RL_SEED="$SEED"
+RL_EXTRA=()
+if [[ -n "${MCMIPL_LOAD_RL_EPOCH:-}" ]]; then
+  RL_EXTRA+=(--load_rl_epoch "${MCMIPL_LOAD_RL_EPOCH}")
+  echo "=== MCMIPL_LOAD_RL_EPOCH=${MCMIPL_LOAD_RL_EPOCH}（断点续跑）===" | tee -a "$LOG_FILE"
+fi
 $PYTHON -u RL_model.py \
   --data_name "$DATASET" \
   --embed transe \
@@ -90,7 +99,8 @@ $PYTHON -u RL_model.py \
   --choice_num 4 \
   --max_turn 15 \
   --eval_num "$EVAL_NUM" \
-  --save_num "$MAX_STEPS" \
+  --save_num "$SAVE_NUM" \
+  "${RL_EXTRA[@]}" \
   2>&1 | tee -a "$LOG_FILE"
 
 echo "=== DONE: $DATASET seed=$SEED at $(date) ===" | tee -a "$LOG_FILE"

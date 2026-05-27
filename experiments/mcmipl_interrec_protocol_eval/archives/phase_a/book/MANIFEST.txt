@@ -1,0 +1,11 @@
+dataset=BOOK
+slug=book
+archived_at=2026-05-27T14:06:00+08:00
+files:
+/home/yrh666/interrecbaseline-MCMIPL/main_table_experiments/../experiments/mcmipl_interrec_protocol_eval/archives/phase_a/book/MANIFEST.txt
+/home/yrh666/interrecbaseline-MCMIPL/main_table_experiments/../experiments/mcmipl_interrec_protocol_eval/archives/phase_a/book/UI_Interaction_data/review_dict_test.json
+/home/yrh666/interrecbaseline-MCMIPL/main_table_experiments/../experiments/mcmipl_interrec_protocol_eval/archives/phase_a/book/UI_Interaction_data/review_dict_train.json
+/home/yrh666/interrecbaseline-MCMIPL/main_table_experiments/../experiments/mcmipl_interrec_protocol_eval/archives/phase_a/book/UI_Interaction_data/review_dict_valid.json
+/home/yrh666/interrecbaseline-MCMIPL/main_table_experiments/../experiments/mcmipl_interrec_protocol_eval/archives/phase_a/book/dataset.pkl
+/home/yrh666/interrecbaseline-MCMIPL/main_table_experiments/../experiments/mcmipl_interrec_protocol_eval/archives/phase_a/book/embeds/transe.pkl
+/home/yrh666/interrecbaseline-MCMIPL/main_table_experiments/../experiments/mcmipl_interrec_protocol_eval/archives/phase_a/book/kg.pkl
